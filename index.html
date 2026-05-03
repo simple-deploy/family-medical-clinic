@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalis Family Health | Premium Multi-Generational Medical Care</title>
+
+  <!-- High-End Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <script type="module">
+    import { RetellWebClient } from 'https://esm.sh/retell-client-js-sdk';
+    window.RetellWebClient = RetellWebClient;
+  </script>
+
+  <style>
+    /* CSS VARIABLES */
+    :root {
+      --forest-g: #064e3b;
+      --forest-dark: #022c22;
+      --sage-l: #ecfdf5;
+      --sage-m: #d1fae5;
+      --gold: #d97706;
+      --white: #ffffff;
+      --slate: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--slate);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--forest-dark);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-mark {
+      background: linear-gradient(135deg, var(--forest-g), #059669);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    .brand-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 38px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.act {
+      color: var(--forest-g);
+    }
+
+    .nav-menu a.act::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--forest-g);
+      border-radius: 2px;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-gold:hover {
+      background: #b45309;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+    }
+
+    .btn-forest {
+      background: var(--forest-g);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-forest:hover {
+      background: var(--forest-dark);
+      transform: translateY(-2px);
+    }
+
+    /* SPAs PAGES */
+    .page {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      padding-top: 84px;
+    }
+
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 90vh;
+      min-height: 700px;
+      background: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2600&auto=format&fit=crop') center/cover;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0) 80%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      padding: 50px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-tag {
+      color: var(--forest-g);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content h1 span {
+      color: var(--gold);
+    }
+
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* MISSION/TRUST */
+    .trust-sec {
+      padding: 100px 5%;
+      background: var(--white);
+    }
+
+    .t-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .t-img {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .t-img img {
+      height: 500px;
+    }
+
+    .t-badge {
+      position: absolute;
+      bottom: 30px;
+      left: -30px;
+      background: #fff;
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .t-badge-ico {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--sage-m);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--forest-g);
+      font-size: 1.4rem;
+    }
+
+    .t-content h2 {
+      font-size: 2.6rem;
+      margin-bottom: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .t-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .feature-list li i {
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    /* QUICK STATS */
+    .qs {
+      background: var(--forest-g);
+      color: #fff;
+      padding: 60px 5%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .q-item {
+      text-align: center;
+    }
+
+    .q-num {
+      font-family: 'Outfit';
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--sage-m);
+      line-height: 1;
+    }
+
+    .q-lbl {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--forest-dark);
+      padding: 80px 5% 40px;
+      color: #fff;
+    }
+
+    .f-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    .f-col p {
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    .f-col h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .f-links {
+      list-style: none;
+    }
+
+    .f-links li {
+      margin-bottom: 12px;
+    }
+
+    .f-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .f-links a:hover {
+      color: var(--sage-m);
+    }
+
+    .f-bot {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+    }
+
+    /* --- SERVICES PAGE CSS --- */
+    .page-header {
+      background: var(--forest-dark);
+      padding: 100px 5%;
+      text-align: center;
+      color: #fff;
+    }
+
+    .page-header h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .page-header p {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .serv-container {
+      padding: 80px 5%;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .serv-nav {
+      position: sticky;
+      top: 120px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
+    }
+
+    .serv-list {
+      list-style: none;
+    }
+
+    .serv-list li {
+      margin-bottom: 4px;
+    }
+
+    .serv-list button {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .serv-list button:hover {
+      background: var(--slate);
+      color: var(--forest-g);
+    }
+
+    .serv-list button.on {
+      background: var(--sage-l);
+      color: var(--forest-g);
+      font-weight: 600;
+      box-shadow: inset 3px 0 0 var(--forest-g);
+    }
+
+    .serv-view {
+      display: none;
+      background: #fff;
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border);
+      animation: fadeUp 0.4s ease;
+    }
+
+    .serv-view.act {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .serv-img {
+      border-radius: 16px;
+      height: 350px;
+      margin-bottom: 40px;
+    }
+
+    .serv-view h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .serv-view p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .treat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .treat-card {
+      background: var(--slate);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .treat-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .treat-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* --- TEAM PAGE CSS --- */
+    .team-wrap {
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .dr-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .dr-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .dr-img {
+      height: 360px;
+      position: relative;
+      background: var(--sage-l);
+    }
+
+    .dr-img img {
+      height: 100%;
+      transition: transform 0.5s;
+      object-position: top;
+    }
+
+    .dr-card:hover .dr-img img {
+      transform: scale(1.05);
+    }
+
+    .dr-info {
+      padding: 30px;
+      position: relative;
+    }
+
+    .dr-role {
+      display: inline-block;
+      background: var(--sage-l);
+      color: var(--forest-g);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .dr-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .dr-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .dr-book {
+      margin-top: 20px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dr-book i {
+      transition: transform 0.2s;
+    }
+
+    .dr-card:hover .dr-book i {
+      transform: translateX(5px);
+    }
+
+    /* --- BOOKING PAGE CSS --- */
+    .bpage {
+      padding: 100px 5%;
+      display: flex;
+      justify-content: center;
+      background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2600&auto=format&fit=crop') center/cover;
+      position: relative;
+    }
+
+    .bpage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 44, 34, 0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    .b-form-wrap {
+      background: #fff;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 24px;
+      padding: 50px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+    }
+
+    .b-form-wrap h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .b-form-wrap>p {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .frm-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .frm-grp {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .frm-grp label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .frm-grp input,
+    .frm-grp select,
+    .frm-grp textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-family: 'Inter';
+      font-size: 1rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--slate);
+    }
+
+    .frm-grp input:focus,
+    .frm-grp select:focus,
+    .frm-grp textarea:focus {
+      border-color: var(--forest-g);
+      background: #fff;
+    }
+
+    .bsuccess {
+      display: none;
+      background: var(--sage-l);
+      border: 1px solid #10b981;
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* CHAT & CALL WIDGETS */
+    .wc-btn {
+      position: fixed;
+      right: 30px;
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+      z-index: 2000;
+    }
+
+    .wc-chat {
+      bottom: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--forest-dark);
+      font-size: 1.5rem;
+    }
+
+    .wc-call {
+      bottom: 105px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      font-size: 1.5rem;
+    }
+
+    .wc-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .wc-call.calling {
+      background: #ef4444;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+      }
+    }
+
+    /* Modals */
+    .mod-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .mod-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .call-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 380px;
+      width: 90%;
+      transform: translateY(20px);
+      transition: 0.3s;
+    }
+
+    .mod-overlay.open .call-box {
+      transform: translateY(0);
+    }
+
+    .call-ava {
+      width: 90px;
+      height: 90px;
+      background: var(--sage-l);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--forest-g);
+    }
+
+    .call-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .c-stat {
+      color: var(--text-muted);
+      min-height: 24px;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    /* AI TEXT CHAT */
+    .chat-pnl {
+      position: fixed;
+      right: 30px;
+      bottom: 105px;
+      width: 360px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .chat-pnl.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+      height: 550px;
+    }
+
+    .cp-head {
+      background: var(--forest-dark);
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cp-body {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: var(--slate);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .c-msg {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .cm-sys {
+      background: #fff;
+      color: var(--text-main);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .cm-usr {
+      background: var(--forest-g);
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .cp-foot {
+      padding: 16px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+
+    .cp-opts {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cp-opts button {
+      background: var(--sage-l);
+      color: var(--forest-dark);
+      border: 1px solid var(--sage-m);
+      padding: 8px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 600;
+    }
+
+    .cp-opts button:hover {
+      background: var(--forest-g);
+      color: #fff;
+    }
+
+    .cp-inp {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cp-inp input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      outline: none;
+    }
+
+    .cp-inp button {
+      background: var(--forest-g);
+      color: #fff;
+      border: none;
+      width: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+
+      .t-grid,
+      .serv-container,
+      .frm-row {
+        grid-template-columns: 1fr;
+      }
+
+      .serv-nav {
+        position: static;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="brand" onclick="goPage('home')">
+      <div class="brand-mark">✚</div>
+      <div>
+        <div class="brand-text">Vitalis</div>
+        <div class="brand-sub">Family Health</div>
+      </div>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#home" class="nv-lnk act" data-tg="home" onclick="goPage('home')">Home</a></li>
+      <li><a href="#services" class="nv-lnk" data-tg="services" onclick="goPage('services')">Services</a></li>
+      <li><a href="#team" class="nv-lnk" data-tg="team" onclick="goPage('team')">Care Team</a></li>
+    </ul>
+    <button class="btn-gold" onclick="goPage('booking')">Book Appointment</button>
+  </nav>
+
+  <!-- HOME PAGE -->
+  <div id="home" class="page active">
+    <header class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">A New standard of care</span>
+        <h1>Exceptional Medical Care For <span>Your Family</span>.</h1>
+        <p>Experience a healthcare environment where clinical excellence meets genuine compassion. From pediatrics to
+          specialized adult care, we put your family's health first.</p>
+        <div class="hero-btns">
+          <button class="btn-forest" onclick="goPage('booking')">Book Your Visit</button>
+          <button class="btn-gold"
+            style="background:transparent; color:var(--forest-dark); border:2px solid var(--forest-dark); box-shadow:none;"
+            onclick="goPage('team')">Meet the Team</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="trust-sec">
+      <div class="t-grid">
+        <div class="t-img">
+          <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1600&auto=format&fit=crop"
+            alt="Doctor Consultation">
+          <div class="t-badge">
+            <div class="t-badge-ico">💙</div>
+            <div>
+              <div style="font-family:'Outfit'; font-weight:800; font-size:1.4rem;">4.9/5</div>
+              <div style="font-size:0.8rem; color:var(--text-muted)">Based on 2,000+ Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div class="t-content">
+          <span class="hero-tag">Our Philosophy</span>
+          <h2>Relationships. Respect. Remarkable Care.</h2>
+          <p>We believe that outstanding medical care is built on strong relationships. Our integrated approach ensures
+            that every member of your family receives personalized, comprehensive care under one roof.</p>
+          <ul class="feature-list">
+            <li><i>✔</i> Nationally Recognized Board-Certified Physicians</li>
+            <li><i>✔</i> Modern State-of-the-art diagnostic equipment</li>
+            <li><i>✔</i> Same-day appointments for urgent family needs</li>
+            <li><i>✔</i> Unrushed consultations with detailed answers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="qs">
+      <div class="q-item">
+        <div class="q-num">15+</div>
+        <div class="q-lbl">YEARS OF EXCELLENCE</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">12</div>
+        <div class="q-lbl">SPECIALIST DOCTORS</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">10k</div>
+        <div class="q-lbl">FAMILIES SERVED</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">24/7</div>
+        <div class="q-lbl">PATIENT SUPPORT</div>
+      </div>
+    </div>
+
+    <!-- NEW SECTION: OUR FACILITIES (Added to expand homepage) -->
+    <section class="sec-facilities" style="padding: 100px 5%; background: var(--slate);">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+        <span class="hero-tag">Modern Medicine</span>
+        <h2 style="font-size: 2.8rem; margin-bottom: 20px;">State-of-the-Art Facilities</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">We've heavily invested in cutting-edge diagnostic
+          technology to provide prompt, accurate answers and treatment plans right here under one roof.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop"
+            style="height: 250px;" alt="Lab">
+          <div style="padding: 30px;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 10px;">On-Site Laboratory</h3>
+            <p style="color: var(--text-muted);">Get bloodwork and essential test results within hours, not days,
+              minimizing anxiety and accelerating care.</p>
+          </div>
+        </div>
+        <div style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <img src="https://images.unsplash.com/photo-1538108149393-cebb47ac50bc?q=80&w=1200&auto=format&fit=crop"
+            style="height: 250px;" alt="Imaging">
+          <div style="padding: 30px;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Advanced Imaging Center</h3>
+            <p style="color: var(--text-muted);">From high-resolution ultrasound to digital X-rays, our imaging suite
+              provides critical insights immediately.</p>
+          </div>
+        </div>
+        <div style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop"
+            style="height: 250px;" alt="Comfort Rooms">
+          <div style="padding: 30px;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Premium Patient Suites</h3>
+            <p style="color: var(--text-muted);">Experience comfort and privacy in our beautifully designed exam and
+              recovery rooms tailored to lower stress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: TESTIMONIALS -->
+    <section style="padding: 100px 5%; background: #fff;">
+      <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center;">
+        <div>
+          <span class="hero-tag">Patient Stories</span>
+          <h2 style="font-size: 2.8rem; margin-bottom: 20px;">What Our Community Says</h2>
+          <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">Our patients' health and
+            satisfaction are the ultimate measures of our clinic's success. Read their genuine experiences.</p>
+          <button class="btn-forest" onclick="goPage('booking')">Experience It Yourself</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: var(--slate); padding: 40px; border-radius: 20px; position: relative;">
+            <div style="color: var(--gold); font-size: 1.5rem; margin-bottom: 16px;">★★★★★</div>
+            <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; font-style: italic;">"Dr. Patel and the
+              team at Vitalis completely transformed how our family views visiting the doctor. From my daughter's
+              pediatric visits to my own adult preventative care, they are thorough, kind, and incredibly modern."</p>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background: #ccc; overflow: hidden;"><img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                  alt="Sarah J."></div>
+              <div><strong style="display: block;">Sarah Jenkins</strong><span
+                  style="font-size: 0.85rem; color: var(--text-muted);">Patient since 2021</span></div>
+            </div>
+          </div>
+          <div style="background: var(--slate); padding: 40px; border-radius: 20px; position: relative;">
+            <div style="color: var(--gold); font-size: 1.5rem; margin-bottom: 16px;">★★★★★</div>
+            <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; font-style: italic;">"I utilized their
+              AI voice booking system in the middle of the night for an urgent morning appointment. It was flawless. The
+              clinic facilities inside feel more like a high-end wellness retreat than a stressful hospital."</p>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background: #ccc; overflow: hidden;"><img
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop"
+                  alt="Mark T."></div>
+              <div><strong style="display: block;">Mark Thompson</strong><span
+                  style="font-size: 0.85rem; color: var(--text-muted);">Patient since 2024</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: CTA -->
+    <section style="padding: 120px 5%; background: var(--forest-g); color: #fff; text-align: center;">
+      <h2 style="font-size: 3rem; color: #fff; margin-bottom: 24px;">Ready To Prioritize Your Health?</h2>
+      <p style="font-size: 1.2rem; color: var(--sage-m); max-width: 600px; margin: 0 auto 40px;">Join thousands of
+        families who trust Vitalis Health with their most valuable asset. Schedule your comprehensive evaluation today.
+      </p>
+      <button class="btn-gold" style="font-size: 1.1rem; padding: 18px 40px;" onclick="goPage('booking')">Schedule An
+        Appointment</button>
+    </section>
+  </div>
+
+  <!-- SERVICES PAGE -->
+  <div id="services" class="page">
+    <div class="page-header"
+      style="background: linear-gradient(rgba(2,44,34,0.9), rgba(2,44,34,0.9)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2600&auto=format&fit=crop') center/cover; padding: 140px 5% 100px;">
+      <h1 style="font-size: 4rem; color: var(--sage-l);">Healthcare Capabilities</h1>
+      <p style="color: var(--sage-m); max-width: 700px; margin: 0 auto; font-size: 1.25rem;">Comprehensive, specialized
+        medical services tailored to address the diverse needs of every life stage, utilizing the latest in modern
+        medical science.</p>
+    </div>
+
+    <!-- New "Why Choose Us" Banner -->
+    <section style="background: #fff; padding: 60px 5%; border-bottom: 1px solid var(--border);">
+      <div
+        style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
+        <div>
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🧬</div>
+          <h4 style="font-size: 1.2rem; color: var(--forest-dark);">Evidence-Based</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">All treatments follow the latest peer-reviewed
+            medical standards.</p>
+        </div>
+        <div>
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🤝</div>
+          <h4 style="font-size: 1.2rem; color: var(--forest-dark);">Patient-Centered</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">You are a partner in your health decisions, not just
+            a chart.</p>
+        </div>
+        <div>
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="font-size: 1.2rem; color: var(--forest-dark);">Coordinated Care</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Seamless transition between pediatrics, specialists,
+            and diagnostics.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="serv-container">
+      <div class="serv-nav">
+        <h3 style="font-family: 'Outfit'; font-size: 1.3rem; margin-bottom: 20px; padding-left: 10px;">Specialties</h3>
+        <ul class="serv-list">
+          <li><button class="st-btn on" data-sv="s-ped">👦 Pediatric Medicine</button></li>
+          <li><button class="st-btn" data-sv="s-adult">👨 Adult Preventative</button></li>
+          <li><button class="st-btn" data-sv="s-chronic">🫀 Chronic Disease</button></li>
+          <li><button class="st-btn" data-sv="s-women">👩 Women's Health</button></li>
+        </ul>
+        <div style="margin-top: 40px; padding: 20px; background: var(--sage-l); border-radius: 16px;">
+          <h4 style="font-size: 1rem; color: var(--forest-dark); margin-bottom: 10px;">Need Guidance?</h4>
+          <p style="font-size: 0.85rem; color: var(--forest-g); margin-bottom: 14px;">Not sure which specialist to see?
+            Our triage nurse can help.</p>
+          <button class="btn-forest" style="width: 100%; font-size: 0.85rem; padding: 10px;" onclick="openCall()">Speak
+            to Reception</button>
+        </div>
+      </div>
+
+      <div class="serv-content">
+        <!-- Ped View -->
+        <div class="serv-view act" id="s-ped">
+          <img src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?q=80&w=1200&auto=format&fit=crop"
+            class="serv-img" alt="Pediatrics">
+          <h2>Pediatric Medicine</h2>
+          <p>Children require specialized care that evolves as they grow. Our pediatric experts provide a nurturing
+            environment, ensuring your child's developmental and physical health from infancy through adolescence.</p>
+          <div class="treat-grid">
+            <div class="treat-card">
+              <h4>Well-Child Checks</h4>
+              <p>Comprehensive monitoring of growth milestones and development trackers.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Immunizations</h4>
+              <p>Up-to-date scheduling for school compliance and global travel.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Sick Visits</h4>
+              <p>Prompt, accurate care for common childhood illnesses with minimal wait.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Behavioral Health</h4>
+              <p>Support for ADHD, anxiety, and school challenges with child psychologists.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adult View -->
+        <div class="serv-view" id="s-adult">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop"
+            class="serv-img" alt="Adult Care">
+          <h2>Adult Preventative Care</h2>
+          <p>Proactive health management is the cornerstone of longevity. We focus on comprehensive screenings and
+            lifestyle medicine to detect and prevent complex health issues before they arise.</p>
+          <div class="treat-grid">
+            <div class="treat-card">
+              <h4>Annual Physicals</h4>
+              <p>Deep-dive health assessments, extensive lab workflows, and vital tracking.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Cancer Screenings</h4>
+              <p>In-house diagnostics for prostate, breast, and colon cancers.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Heart Health</h4>
+              <p>Advanced EKGs, lipid panels, and nutritional counseling programs.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Immunizations</h4>
+              <p>Adult boosters, flu protocols, and international travel vaccinations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chronic View -->
+        <div class="serv-view" id="s-chronic">
+          <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1200&auto=format&fit=crop"
+            class="serv-img" alt="Chronic">
+          <h2>Chronic Disease Management</h2>
+          <p>Living with a chronic condition requires continuous, compassionate management. We partner with you to
+            create sustainable lifestyle adjustments, coordinate multi-specialty care, and manage complex medication
+            protocols.</p>
+          <div class="treat-grid">
+            <div class="treat-card">
+              <h4>Diabetes Management</h4>
+              <p>Insulin protocols, continuous glucose monitor training, and nutrition.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Hypertension</h4>
+              <p>Advanced blood pressure tracking and targeted lifestyle interventions.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Asthma & COPD</h4>
+              <p>Lung function testing, inhaler optimization, and allergy triggers.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Thyroid Disorders</h4>
+              <p>Full endocrine panel balancing and fatigue management.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Women's View -->
+        <div class="serv-view" id="s-women">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop"
+            class="serv-img" alt="Womens health">
+          <h2>Women's Health</h2>
+          <p>Dedicated female-focused care encompassing reproductive health, menopause management, and routine
+            screenings. Our female physicians provide a comfortable, empathetic environment.</p>
+          <div class="treat-grid">
+            <div class="treat-card">
+              <h4>Gynecology</h4>
+              <p>Pap smears, pelvic exams, and reproductive tracking.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Family Planning</h4>
+              <p>Contraception counseling and preconception risk assessments.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Menopause Care</h4>
+              <p>Hormone Replacement Therapy (HRT) management and bone density tracking.</p>
+            </div>
+            <div class="treat-card">
+              <h4>Breast Health</h4>
+              <p>Clinical exams and mammogram referrals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <section style="padding: 80px 5%; background: #fff; border-top: 1px solid var(--border);">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2.4rem; text-align: center; margin-bottom: 40px;">Frequently Asked Questions</h2>
+        <div
+          style="margin-bottom: 24px; padding: 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--slate);">
+          <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--forest-dark);">Do I need a referral to see a
+            specialist?</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">In most cases, yes. Our primary care family
+            physicians will conduct an initial evaluation and automatically refer you internally to our specialized
+            wings (such as pediatrics or women's health) as needed.</p>
+        </div>
+        <div
+          style="margin-bottom: 24px; padding: 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--slate);">
+          <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--forest-dark);">Are telemedicine consultations
+            available for all services?</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">We offer telehealth for routine follow-ups,
+            medication refills, and minor urgent care issues (e.g. skin rashes, flu symptoms). Annual physicals and
+            initial diagnostic workups require in-person visits.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CARE TEAM PAGE -->
+  <div id="team" class="page">
+    <div class="page-header"
+      style="background: linear-gradient(rgba(2,44,34,0.85), rgba(2,44,34,0.85)), url('https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2600&auto=format&fit=crop') center/cover; padding: 140px 5% 100px;">
+      <h1 style="font-size: 4rem; color: var(--sage-l);">Meet The Experts</h1>
+      <p style="color: var(--sage-m); max-width: 700px; margin: 0 auto; font-size: 1.25rem;">Our multidisciplinary team
+        of board-certified professionals is dedicated to clinical excellence, continuous education, and deeply
+        compassionate service.</p>
+    </div>
+
+    <!-- Director's Note -->
+    <section style="padding: 80px 5%; background: var(--white);">
+      <div style="max-width: 1000px; margin: 0 auto; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h2 style="font-size: 2.5rem; margin-bottom: 20px;">A Standard of Excellence</h2>
+          <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">"At Vitalis, we
+            don't just treat illnesses; we treat people. Our entire recruitment philosophy is based on finding brilliant
+            medical minds who possess an equal measure of empathy. When you walk through our doors, you are family."</p>
+          <div style="font-family: 'Outfit'; font-size: 1.2rem; font-weight: 700; color: var(--forest-g);">Dr. Rajiv
+            Patel</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">Chief Medical Officer</div>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop"
+            style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" alt="Dr. Rajiv Patel">
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical Staff Grid -->
+    <div class="team-wrap" style="background: var(--slate); padding: 80px 5%;">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <span class="hero-tag">Specialized Care</span>
+        <h2 style="font-size: 2.8rem;">Our Physicians & Specialists</h2>
+      </div>
+      <div class="team-grid">
+        <div class="dr-card" onclick="goPage('booking')">
+          <div class="dr-img"><img
+              src="https://images.unsplash.com/photo-1594824432258-f9a749eb4037?q=80&w=800&auto=format&fit=crop"
+              alt="Dr. Evans"></div>
+          <div class="dr-info">
+            <div class="dr-role">Head of Pediatrics</div>
+            <h3>Dr. Samantha Evans</h3>
+            <p>FAAP, Pediatrician. Passionate about developmental milestones and childhood wellness.</p>
+            <div class="dr-book">Book Dr. Evans <i>→</i></div>
+          </div>
+        </div>
+        <div class="dr-card" onclick="goPage('booking')">
+          <div class="dr-img"><img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop"
+              alt="Dr. Miller"></div>
+          <div class="dr-info">
+            <div class="dr-role">Family Medicine</div>
+            <h3>Dr. Jonathan Miller</h3>
+            <p>DO, Family Practice. Focuses on sports medicine and adult preventative disciplines.</p>
+            <div class="dr-book">Book Dr. Miller <i>→</i></div>
+          </div>
+        </div>
+        <div class="dr-card" onclick="goPage('booking')">
+          <div class="dr-img"><img
+              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop"
+              alt="Dr. Lee"></div>
+          <div class="dr-info">
+            <div class="dr-role">Internal Medicine</div>
+            <h3>Dr. David Lee</h3>
+            <p>MD, PhD. Renowned specialist in chronic care management and endocrinology.</p>
+            <div class="dr-book">Book Dr. Lee <i>→</i></div>
+          </div>
+        </div>
+        <div class="dr-card" onclick="goPage('booking')">
+          <div class="dr-img"><img
+              src="https://images.unsplash.com/photo-1590611936760-eeb9bc500b75?q=80&w=800&auto=format&fit=crop"
+              alt="Dr. Sarah"></div>
+          <div class="dr-info">
+            <div class="dr-role">Women's Health</div>
+            <h3>Dr. Sarah Jenkins</h3>
+            <p>FACOG, OB-GYN. Dedicated advocate for comprehensive reproductive care.</p>
+            <div class="dr-book">Book Dr. Jenkins <i>→</i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nursing & Support Staff Grid -->
+      <div style="text-align: center; margin-bottom: 50px; margin-top: 80px;">
+        <span class="hero-tag">Clinical Excellence</span>
+        <h2 style="font-size: 2.8rem;">Nursing & Support Leadership</h2>
+      </div>
+      <div class="team-grid">
+        <div class="dr-card" onclick="goPage('booking')">
+          <div class="dr-img"><img
+              src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?q=80&w=800&auto=format&fit=crop"
+              alt="Nurse Elena"></div>
+          <div class="dr-info">
+            <div class="dr-role">Lead Nurse Practitioner</div>
+            <h3>Elena Ramirez, NP</h3>
+            <p>APRN, coordinates urgent care triage workflows and chronic care check-ins.</p>
+            <div class="dr-book">Book Elena <i>→</i></div>
+          </div>
+        </div>
+        <div class="dr-card" onclick="goPage('booking')">
+          <div class="dr-img"><img
+              src="https://images.unsplash.com/photo-1537368910025-702800bf8fc6?q=80&w=800&auto=format&fit=crop"
+              alt="Nurse Marcus"></div>
+          <div class="dr-info">
+            <div class="dr-role">Diagnostic lead</div>
+            <h3>Marcus Wright, RN</h3>
+            <p>BSN, manages the on-site imaging and laboratory procedures flawlessly.</p>
+            <div class="dr-book">Contact Lab <i>→</i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING PAGE -->
+  <div id="booking" class="page">
+    <div class="page-header"
+      style="background: linear-gradient(rgba(2,44,34,0.9), rgba(2,44,34,0.9)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2600&auto=format&fit=crop') center/cover; padding: 120px 5% 80px;">
+      <h1 style="font-size: 3.5rem; color: var(--sage-l);">Patient Portal</h1>
+      <p style="color: var(--sage-m); max-width: 600px; margin: 0 auto; font-size: 1.15rem;">Schedule an appointment or
+        access your health records securely.</p>
+    </div>
+
+    <!-- Booking Split Layout -->
+    <section style="padding: 80px 5%; background: var(--slate);">
+      <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px;">
+
+        <!-- Booking Form Left -->
+        <div class="b-form-wrap"
+          style="background: #fff; padding: 50px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); border: 1px solid var(--border);">
+          <span class="hero-tag" style="margin-bottom:8px">Secure Booking</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Schedule Your Visit</h2>
+          <p style="color: var(--text-muted); margin-bottom: 30px;">Fill out the clinical intake request below. For
+            life-threatening emergencies, dial 911 immediately.</p>
+
+          <div class="frm-row">
+            <div class="frm-grp"><label>First Name</label><input type="text" id="bfn" placeholder="e.g. Jane"></div>
+            <div class="frm-grp"><label>Last Name</label><input type="text" id="bln" placeholder="e.g. Doe"></div>
+          </div>
+          <div class="frm-row">
+            <div class="frm-grp"><label>Email Address</label><input type="email" id="bem"
+                placeholder="jane@example.com"></div>
+            <div class="frm-grp"><label>Phone Number</label><input type="tel" id="bph" placeholder="(03) 1234 5678">
+            </div>
+          </div>
+          <div class="frm-row">
+            <div class="frm-grp">
+              <label>Select Provider</label>
+              <select
+                style="appearance: none; background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=http://www.w3.org/2000/svg width=292.4 height=292.4><path fill=%230f172a d=M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4A17.6 17.6 0 0 0 0 82.2c0 5 1.8 9.3 5.4 12.9l128 127.9c3.6 3.6 7.8 5.4 12.8 5.4s9.2-1.8 12.8-5.4L287 95c3.5-3.5 5.4-7.8 5.4-12.8 0-5-1.9-9.2-5.5-12.8z/></svg>') right 20px center no-repeat; background-size: 12px; background-color: var(--slate);">
+                <option>First Available Doctor</option>
+                <option>Dr. Rajiv Patel (Internal Medicine)</option>
+                <option>Dr. Samantha Evans (Pediatrics)</option>
+                <option>Dr. Jonathan Miller (Family Care)</option>
+                <option>Dr. David Lee (Specialist)</option>
+                <option>Dr. Sarah Jenkins (OB-GYN)</option>
+              </select>
+            </div>
+            <div class="frm-grp"><label>Preferred Date</label><input type="date" id="bdate"></div>
+          </div>
+          <div class="frm-grp" style="margin-bottom:24px;">
+            <label>Reason for Visit</label>
+            <textarea rows="4" placeholder="Briefly describe your symptoms or reason for visit..."></textarea>
+          </div>
+          <button class="btn-forest" style="width:100%;font-size:1.1rem;padding:16px;"
+            onclick="submitBooking(this)">Confirm Request</button>
+          <div class="bsuccess" id="bsuccess"
+            style="display:none; background: var(--sage-l); border: 1px solid #10b981; padding: 24px; border-radius: 16px; margin-top: 30px; text-align: center;">
+            <h3 style="color:#10b981;font-size:1.3rem;margin-bottom:6px">Request Submitted Successfully</h3>
+            <p style="color:var(--text-muted);font-size:0.9rem">Our triage team will rapidly process your data and
+              contact you to finalize the time slot.</p>
+          </div>
+        </div>
+
+        <!-- Utility Sidebar Right -->
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <!-- Card 1 -->
+          <div style="background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <div
+              style="width: 50px; height: 50px; background: var(--sage-l); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">
+              🎒</div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 16px;">What To Bring</h3>
+            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+              <li style="margin-bottom: 10px;">✓ Valid photo ID or Driver's License</li>
+              <li style="margin-bottom: 10px;">✓ Current insurance card</li>
+              <li style="margin-bottom: 10px;">✓ Complete list of current medications</li>
+              <li style="margin-bottom: 10px;">✓ Medical records from previous doctors</li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div style="background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <div
+              style="width: 50px; height: 50px; background: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #ef4444; margin-bottom: 20px;">
+              🏥</div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 16px;">Insurance & Billing</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.7;">We accept most major PPO and HMO
+              insurance plans including BlueCross, Cigna, Aetna, and Medicare.</p>
+            <a href="#" style="color: var(--gold); font-weight: 600; text-decoration: none;">View all accepted providers
+              →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-grid">
+      <div class="f-col">
+        <div class="brand">
+          <div class="brand-mark" style="background:#fff; color:var(--forest-g)">✚</div>
+          <div class="brand-text" style="color:#fff">Vitalis</div>
+        </div>
+        <p>Premium healthcare prioritizing relationships, preventative medicine, and comprehensive longevity for your
+          entire family.</p>
+      </div>
+      <div class="f-col">
+        <h4>Navigation</h4>
+        <ul class="f-links">
+          <li><a href="#" onclick="goPage('home')">Home</a></li>
+          <li><a href="#" onclick="goPage('services')">Medical Services</a></li>
+          <li><a href="#" onclick="goPage('team')">Meet The Team</a></li>
+          <li><a href="#" onclick="goPage('booking')">Patient Portal</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Clinic Hours</h4>
+        <ul class="f-links" style="pointer-events:none">
+          <li><a>Mon-Fri: 8AM - 6PM</a></li>
+          <li><a>Saturday: 9AM - 2PM</a></li>
+          <li><a>Sunday: Closed (On-Call)</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links">
+          <li><a href="tel:1234567890">(123) 456-7890</a></li>
+          <li><a href="mailto:care@vitalis.com">care@vitalis.com</a></li>
+          <li><a>100 Healthway Drive<br>Suite 200, MedCity</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      &copy; 2026 Vitalis Family Health. All rights reserved. HIPAA Compliant.
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <button class="wc-btn wc-chat" onclick="openChat()">💬</button>
+  <button class="wc-btn wc-call" id="cTog" onclick="openCall()">📞</button>
+
+  <!-- VOICE CALL MODAL -->
+  <div class="mod-overlay" id="vMod">
+    <div class="call-box">
+      <div class="call-ava">✚</div>
+      <h3>AI Receptionist</h3>
+      <div class="c-stat" id="cStat">Ready to assist you 24/7.</div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="btn-forest" id="cStart" onclick="startCallVoice()">📞 Start Voice Call</button>
+        <button class="btn-forest" style="background:#ef4444;display:none" id="cEnd" onclick="endCallVoice()">📵 End
+          Call</button>
+        <button class="btn-forest" style="background:transparent;color:var(--text-muted);border:1px solid var(--border)"
+          onclick="closeCall()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-pnl" id="cPnl">
+    <div class="cp-head">
+      <div>
+        <div style="font-weight:700">Digital Assistant</div>
+        <div style="font-size:0.75rem;opacity:0.8">Typically replies instantly</div>
+      </div>
+      <button onclick="closeChat()"
+        style="background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer">×</button>
+    </div>
+    <div class="cp-body" id="cBody"></div>
+    <div class="cp-foot">
+      <div class="cp-opts" id="cOpts"></div>
+      <div class="cp-inp">
+        <input type="text" id="cInp" placeholder="Type your message..." onkeypress="if(event.key==='Enter') sendChat()">
+        <button onclick="sendChat()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
