@@ -18,14 +18,24 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 
-// Setup min date for booking
+
+// Setup min date for booking & parse hash on load
 window.addEventListener('DOMContentLoaded', () => {
   const dInp = document.getElementById('bdate');
   if (dInp) {
     const today = new Date().toISOString().split('T')[0];
     dInp.setAttribute('min', today);
   }
+  
+  const hash = window.location.hash;
+  if(hash && hash.length > 1){
+    const h = hash.substring(1);
+    if(document.getElementById(h)){
+        goPage(h);
+    }
+  }
 });
+
 
 // Services Tab Switching
 document.querySelectorAll('.st-btn').forEach(btn => {
@@ -167,7 +177,7 @@ function openChat() {
   const pnl = document.getElementById('cPnl');
   pnl.classList.add('open');
   if(!document.getElementById('cBody').innerHTML) {
-    addCMsg("Hello! I'm your Vitalis digital assistant. How can I help you?", 'sys');
+    addCMsg("Hello! I'm your MJD Health digital assistant. How can I help you?", 'sys');
     setCOpts([
       { lbl: 'Book Appointment', cb: () => replyToUser('book') },
       { lbl: 'Services', cb: () => replyToUser('serv') }
