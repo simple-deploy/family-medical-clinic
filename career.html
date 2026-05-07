@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJD Health | Careers</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest:#064e3b;
+  --dark:#022c22;
+  --forest-dark:#022c22;
+  --sage:#ecfdf5;
+  --sage-m:#a7f3d0;
+  --slate:#f8fafc;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --gold:#d97706;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter';background:var(--slate);color:var(--text);}
+h1,h2,h3{font-family:'Outfit';}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.nav-menu{display:flex;gap:30px;list-style:none;}
+.nav-menu a{text-decoration:none;color:var(--muted);font-weight:500;position:relative;transition:color 0.3s;display:flex;align-items:center;}
+.nav-menu a:hover{color:var(--forest);}
+.nav-menu a.act{color:var(--forest);font-weight:600;}
+.dropdown{position:relative;}
+.dropdown-content{position:absolute;top:calc(100% + 10px);left:0;min-width:220px;background:#fff;border-radius:16px;box-shadow:0 18px 40px rgba(15,23,42,0.15);opacity:0;visibility:hidden;transform:translateY(8px);transition:all 0.3s ease;z-index:100;}
+.dropdown:hover .dropdown-content{opacity:1;visibility:visible;transform:translateY(0);}
+.dropdown-content a{color:var(--text);padding:14px 20px;display:block;text-decoration:none;border-bottom:1px solid var(--border);transition:0.2s;}
+.dropdown-content a:last-child{border-bottom:none;}
+.dropdown-content a:hover{background:var(--sage);color:var(--forest);}
+.btn-gold{background:var(--gold);color:#fff;padding:12px 26px;border-radius:999px;border:none;font-weight:600;cursor:pointer;transition:all 0.3s ease;}
+.btn-gold:hover{background:#b45309;transform:translateY(-2px);box-shadow:0 10px 20px rgba(217,119,6,0.3);}
+
+/* HERO */
+.hero{
+  margin-top:80px;
+  padding:160px 5%;
+  text-align:center;
+  color:#fff;
+  background:linear-gradient(135deg, rgba(6,78,59,0.85), rgba(2,44,34,0.9)),
+  url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2000') center/cover;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(167, 243, 208, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.hero-box{
+  max-width:760px;
+  margin:auto;
+  background:rgba(255,255,255,0.08);
+  padding:60px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(16px);
+  animation: fadeInUp 1s ease-out;
+  position:relative;
+  z-index:1;
+}
+
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,0.15);
+  color:#d1fae5;
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:0.85rem;
+  letter-spacing:1px;
+  margin-bottom:20px;
+  animation: slideInUp 0.8s ease-out;
+}
+
+.hero-box h1{font-size:3.4rem;margin-bottom:18px;line-height:1.05;animation: fadeInUp 1.2s ease-out;}
+.hero-box p{opacity:.92;font-size:1.05rem;line-height:1.8;animation: fadeInUp 1.4s ease-out;}
+
+.hero-pill-group{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:24px;
+}
+
+.hero-pill{
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  font-size:.95rem;
+  backdrop-filter:blur(10px);
+  transition:all 0.3s ease;
+  cursor:default;
+  animation: fadeInUp 1.6s ease-out;
+}
+
+.hero-pill:hover{
+  background:rgba(255,255,255,0.25);
+  border-color:rgba(255,255,255,0.3);
+  transform:translateY(-3px);
+}
+
+/* SECTIONS */
+.section{
+  padding:120px 5%;
+  position:relative;
+}
+
+.section.light{
+  background:#fff;
+}
+
+.section.accent{
+  background:linear-gradient(135deg, rgba(6,78,59,0.05), rgba(167,243,208,0.1));
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-head{
+  text-align:center;
+  max-width:760px;
+  margin:auto 0 60px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.section-head h2{
+  font-size:2.8rem;
+  margin-bottom:20px;
+  background:linear-gradient(135deg, var(--forest), var(--dark));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.section-head p{
+  color:var(--muted);
+  margin-top:18px;
+  line-height:1.8;
+  font-size:1.05rem;
+}
+
+/* JOB GRID */
+.job-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  margin-bottom:40px;
+}
+
+.job-card{
+  background:#fff;
+  padding:32px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  border:1px solid rgba(6,78,59,0.08);
+  transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 1s ease-out;
+  position:relative;
+  overflow:hidden;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(167,243,208,0.2), transparent);
+  transition: left 0.6s;
+}
+
+.job-card:hover::before {
+  left: 100%;
+}
+
+.job-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+  border-color:var(--sage-m);
+}
+
+.job-meta{
+  color:var(--forest);
+  font-size:.95rem;
+  margin-bottom:14px;
+  font-weight:500;
+}
+
+.job-title{
+  font-size:1.55rem;
+  margin-bottom:12px;
+  color:var(--text);
+  font-weight:600;
+}
+
+.job-card p{
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+/* BENEFITS & CULTURE GRID */
+.benefits-grid,
+.culture-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  transition:all 0.4s ease;
+  cursor:default;
+  border:1px solid var(--border);
+  animation: fadeInUp 1s ease-out;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-size:1.05rem;
+  line-height:1.6;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+  border-color:var(--sage-m);
+  background:linear-gradient(135deg, #fff 0%, rgba(167,243,208,0.05) 100%);
+}
+
+.card-icon {
+  font-size:2.5rem;
+  min-width:50px;
+  text-align:center;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--forest);
+  color:#fff;
+  padding:12px 28px;
+  border-radius:30px;
+  border:none;
+  text-decoration:none;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  background:#0f766e;
+  box-shadow:0 8px 20px rgba(6,78,59,0.3);
+}
+
+.btn.outline {
+  background:transparent;
+  border:2px solid var(--forest);
+  color:var(--forest);
+}
+
+.btn.outline:hover {
+  background:var(--sage);
+}
+
+/* CTA SECTION */
+.cta{
+  background:linear-gradient(135deg,var(--forest),var(--dark));
+  color:#fff;
+  padding:80px 5%;
+  border-radius:28px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+  margin:60px 5% 0;
+  max-width:1300px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+  overflow:hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cta h2{
+  font-size:2.5rem;
+  margin-bottom:15px;
+  position:relative;
+  z-index:1;
+}
+
+.cta p{
+  font-size:1.1rem;
+  opacity:0.9;
+  margin-bottom:30px;
+  position:relative;
+  z-index:1;
+}
+
+.cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#fff;
+  color:var(--forest);
+  padding:14px 35px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:all 0.3s ease;
+  position:relative;
+  z-index:1;
+  border:2px solid #fff;
+}
+
+.cta a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  background:var(--sage);
+  color:var(--forest);
+}
+
+/* TEAM SECTION */
+.team-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.team-member {
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  transition:all 0.4s ease;
+  animation: fadeInUp 1s ease-out;
+}
+
+.team-member:hover {
+  transform:translateY(-10px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+}
+
+.team-member-image {
+  width:100%;
+  height:250px;
+  background:linear-gradient(135deg, var(--sage-m), var(--sage));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:4rem;
+  overflow:hidden;
+}
+
+.team-member-info {
+  padding:24px;
+}
+
+.team-member-name {
+  font-size:1.3rem;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:5px;
+}
+
+.team-member-role {
+  color:var(--forest);
+  font-size:0.95rem;
+  font-weight:500;
+  margin-bottom:10px;
+}
+
+.team-member-desc {
+  color:var(--muted);
+  font-size:0.9rem;
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+  background:var(--forest-dark);
+  color:#fff;
+  padding:80px 5% 40px;
+  width:100%;
+  display:block;
+}
+
+.f-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:50px;
+  margin-bottom:60px;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.f-col p{
+  color:rgba(255,255,255,0.65);
+  line-height:1.8;
+  margin-top:20px;
+  font-size:.95rem;
+}
+
+.f-col h4{
+  color:#fff;
+  font-size:1.1rem;
+  margin-bottom:24px;
+  font-weight:600;
+}
+
+.f-links{
+  list-style:none;
+}
+
+.f-links li{
+  margin-bottom:12px;
+}
+
+.f-links a{
+  color:rgba(255,255,255,0.65);
+  text-decoration:none;
+  transition:color 0.3s;
+}
+
+.f-links a:hover{
+  color:var(--sage-m);
+}
+
+.f-bot{
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:30px;
+  text-align:center;
+  color:rgba(255,255,255,0.45);
+  font-size:.85rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .f-grid{grid-template-columns:1.2fr 1fr 1fr 1fr;}
+  .hero-box{padding:40px;}
+  .hero-box h1{font-size:2.8rem;}
+}
+
+@media(max-width:768px){
+  nav{padding:15px 5%;flex-wrap:wrap;}
+  .nav-menu{flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;gap:0;display:none;border-top:1px solid var(--border);}
+  nav.mobile .nav-menu{display:flex;}
+  .nav-menu li{padding:12px 5%;border-bottom:1px solid var(--border);}
+  .hero{padding:100px 5%;margin-top:60px;}
+  .hero-box{padding:30px;}
+  .hero-box h1{font-size:2rem;}
+  .hero-pill-group{flex-direction:column;}
+  .section{padding:80px 5%;}
+  .section-head h2{font-size:2rem;}
+  .job-grid{grid-template-columns:1fr;}
+  .benefits-grid, .culture-grid{grid-template-columns:1fr;}
+  .f-grid{grid-template-columns:1fr;gap:30px;}
+  .card{flex-direction:column;text-align:center;}
+  .card-icon{margin:0 auto;}
+  .cta{padding:50px 5%;margin:40px 5%;}
+  .cta h2{font-size:2rem;}
+}
+
+@media(max-width:480px){
+  .hero-box{padding:20px;}
+  .hero-box h1{font-size:1.6rem;}
+  .hero-box p{font-size:0.95rem;}
+  .section-head h2{font-size:1.6rem;}
+  .team-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="brand" onclick="window.location.href='index.html'" style="cursor:pointer; display:flex; align-items:center; gap:12px;">
+    <img src="images/logo.png" alt="MJD Logo" style="height: 45px;">
+  </div>
+  <ul class="nav-menu">
+    <li><a href="index.html" class="nv-lnk">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="nv-lnk" style="display:flex; align-items:center; gap: 4px;">About Us <span style="font-size:0.7em">▼</span></a>
+      <div class="dropdown-content">
+        <a href="about.html">About</a>
+        <a href="fees.html">Fees & Billing</a>
+        <a href="practice-information.html">Practice Information</a>
+      </div>
+    </li>
+    <li><a href="patient-forms.html" class="nv-lnk">Patient Forms</a></li>
+    <li><a href="career.html" class="nv-lnk act">Careers</a></li>
+    <li><a href="links-and-res.html" class="nv-lnk">Links & Resources</a></li>
+    <li><a href="contact.html" class="nv-lnk">Contact Us</a></li>
+    <li><a href="index.html#services" class="nv-lnk">Services</a></li>
+    <li><a href="index.html#team" class="nv-lnk">Care Team</a></li>
+  </ul>
+  <button class="btn-gold" onclick="window.location.href='index.html#booking'">Book Appointment</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+    <span class="hero-tag">🚀 Join Our Team</span>
+    <h1>Build a meaningful career in healthcare with a team that truly supports you.</h1>
+    <p>Join a modern clinic delivering compassionate care, strong teamwork and real opportunities to grow.</p>
+    <div class="hero-pill-group">
+      <span class="hero-pill">⏰ Flexible shifts</span>
+      <span class="hero-pill">📚 Clinical development</span>
+      <span class="hero-pill">💚 Team wellbeing</span>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN POSITIONS -->
+<section class="section light">
+  <div class="container">
+    <div class="section-head">
+      <h2>Open Positions</h2>
+      <p>We're recruiting practitioners and clinical staff who want to make a positive difference in the Gold Coast community.</p>
+    </div>
+    <div class="job-grid">
+      <div class="job-card">
+        <div class="job-meta">📍 Carrara, QLD</div>
+        <div class="job-title">General Practitioner</div>
+        <p>DWS/DPA role with high patient demand and practice support. Work with a collaborative team and make a real impact.</p>
+        <a href="#" class="btn">Apply Now →</a>
+      </div>
+      <div class="job-card">
+        <div class="job-meta">📍 Carrara, QLD</div>
+        <div class="job-title">Registered Nurse</div>
+        <p>A friendly nursing role supporting daily patient care and clinic flow. Help shape our nursing standards.</p>
+        <a href="#" class="btn">Apply Now →</a>
+      </div>
+      <div class="job-card">
+        <div class="job-meta">📍 Carrara, QLD</div>
+        <div class="job-title">Practice Assistant</div>
+        <p>Be the heart of the clinic, helping patients feel welcome and supported. Essential administrative role.</p>
+        <a href="#" class="btn">Apply Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOIN US -->
+<section class="section accent">
+  <div class="container">
+    <div class="section-head">
+      <h2>Why Join Us</h2>
+      <p>We offer a workplace designed around patient-first care, strong culture and professional growth.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <div>Development pathways for clinicians and staff growth</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💚</div>
+        <div>Positive team culture with genuine support</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏥</div>
+        <div>Modern consulting rooms with latest equipment</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <div>Flexible rostering and work-life balance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR CULTURE -->
+<section class="section light">
+  <div class="container">
+    <div class="section-head">
+      <h2>Our Culture</h2>
+      <p>We believe strong care begins with trusted people, supported technology and thoughtful practice systems.</p>
+    </div>
+    <div class="culture-grid">
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <div>Collaboration across nursing, allied health and GPs</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <div>Regular clinical education and team debriefs</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <div>Work-life balance and staff wellbeing initiatives</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔁</div>
+        <div>Structured onboarding for every team member</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="section accent">
+  <div class="container">
+    <div class="section-head">
+      <h2>Meet Our Leadership</h2>
+      <p>Learn from experienced healthcare professionals dedicated to mentoring the next generation.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-member-image">👨‍⚕️</div>
+        <div class="team-member-info">
+          <div class="team-member-name">Dr. Michael Johnson</div>
+          <div class="team-member-role">Clinical Director</div>
+          <div class="team-member-desc">15+ years in general practice with focus on staff development and patient outcomes.</div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-image">👩‍⚕️</div>
+        <div class="team-member-info">
+          <div class="team-member-name">Dr. Sarah Williams</div>
+          <div class="team-member-role">Head of Nursing</div>
+          <div class="team-member-desc">Expert in clinic operations and creating supportive healthcare environments.</div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-image">👨‍💼</div>
+        <div class="team-member-info">
+          <div class="team-member-name">James Thompson</div>
+          <div class="team-member-role">Practice Manager</div>
+          <div class="team-member-desc">Dedicated to staff wellbeing and building strong clinic culture.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to be part of the team?</h2>
+  <p>Send your CV or enquiry and one of our clinic leaders will get back to you within one business day.</p>
+  <a href="contact.html">Apply Now ✉️</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-grid">
+    <div class="f-col">
+      <div class="brand" style="margin-bottom:20px; cursor:pointer;" onclick="window.location.href='index.html'">
+        <img src="images/logo.png" alt="MJD Logo" style="width: 240px; height: auto; filter: brightness(0) invert(1);">
+      </div>
+      <p>Premium healthcare prioritizing relationships, preventative medicine, and comprehensive longevity for your entire family.</p>
+    </div>
+    <div class="f-col">
+      <h4>Navigation</h4>
+      <ul class="f-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="patient-forms.html">Patient Forms</a></li>
+        <li><a href="career.html">Careers</a></li>
+        <li><a href="links-and-res.html">Links & Resources</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Clinic Hours</h4>
+      <ul class="f-links" style="pointer-events:none">
+        <li><a>Mon-Fri: 8AM - 6PM</a></li>
+        <li><a>Saturday: 9AM - 2PM</a></li>
+        <li><a>Sunday: Closed (On-Call)</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact Us</h4>
+      <ul class="f-links">
+        <li><a href="tel:0755945551">(07) 5594 5551</a></li>
+        <li><a href="mailto:emeraldlakesmedical@outlook.com">emeraldlakesmedical@outlook.com</a></li>
+        <li><a>10/3027 The Boulevard<br>Carrara QLD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bot">
+    &copy; 2026 MJD Health Medical Clinics. All rights reserved. HIPAA Compliant.
+  </div>
+</footer>
+
+<script>
+// Scroll effect on navbar
+document.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Stagger animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = `fadeInUp 1s ease-out ${index * 0.1}s back`;
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.job-card, .card, .team-member').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>

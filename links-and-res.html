@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJD Health | Links & Resources</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest:#064e3b;
+  --dark:#022c22;
+  --forest-dark:#022c22;
+  --sage:#ecfdf5;
+  --sage-m:#a7f3d0;
+  --slate:#f8fafc;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --gold:#d97706;
+  --cyan: #06b6d4;
+  --purple: #7c3aed;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter';background:var(--slate);color:var(--text);}
+h1,h2,h3,h4{font-family:'Outfit';}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.nav-menu{display:flex;gap:30px;list-style:none;}
+.nav-menu a{text-decoration:none;color:var(--muted);font-weight:500;transition:color 0.3s;display:flex;align-items:center;}
+.nav-menu a:hover{color:var(--forest);}
+.nav-menu a.act{color:var(--forest);font-weight:600;}
+.dropdown{position:relative;}
+.dropdown-content{position:absolute;top:calc(100% + 10px);left:0;min-width:220px;background:#fff;border-radius:16px;box-shadow:0 18px 40px rgba(15,23,42,0.15);opacity:0;visibility:hidden;transform:translateY(8px);transition:all 0.3s ease;z-index:100;}
+.dropdown:hover .dropdown-content{opacity:1;visibility:visible;transform:translateY(0);}
+.dropdown-content a{color:var(--text);padding:14px 20px;display:block;text-decoration:none;border-bottom:1px solid var(--border);transition:0.2s;}
+.dropdown-content a:last-child{border-bottom:none;}
+.dropdown-content a:hover{background:var(--sage);color:var(--forest);}
+.btn-gold{background:var(--gold);color:#fff;padding:12px 26px;border-radius:999px;border:none;font-weight:600;cursor:pointer;transition:all 0.3s ease;}
+.btn-gold:hover{background:#b45309;transform:translateY(-2px);box-shadow:0 10px 20px rgba(217,119,6,0.3);}
+
+/* HERO */
+.hero{
+  margin-top:80px;
+  padding:160px 5%;
+  text-align:center;
+  color:#fff;
+  background:linear-gradient(135deg, rgba(6,78,59,0.85), rgba(2,44,34,0.9)),
+  url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2000') center/cover;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(167, 243, 208, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner{
+  max-width:900px;
+  margin:auto;
+  position:relative;
+  z-index:1;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero h1{
+  font-size:3.4rem;
+  margin-bottom:20px;
+  line-height:1.1;
+}
+
+.hero p{
+  font-size:1.1rem;
+  opacity:0.92;
+  margin-bottom:30px;
+  line-height:1.8;
+}
+
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,0.15);
+  color:#d1fae5;
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:0.85rem;
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+
+/* HERO LINKS */
+.hero-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.hero-links a{
+  background:rgba(255,255,255,0.16);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.18);
+  transition:all 0.3s ease;
+  backdrop-filter:blur(10px);
+  font-weight:500;
+}
+
+.hero-links a:hover{
+  background:rgba(255,255,255,0.28);
+  border-color:rgba(255,255,255,0.3);
+  transform:translateY(-3px);
+}
+
+/* SECTIONS */
+.section{
+  padding:120px 5%;
+  position:relative;
+}
+
+.section.light{
+  background:#fff;
+}
+
+.section.accent{
+  background:linear-gradient(135deg, rgba(6,78,59,0.05), rgba(167,243,208,0.1));
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-head{
+  text-align:center;
+  max-width:800px;
+  margin:auto 0 60px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.section-head h2{
+  font-size:2.8rem;
+  margin-bottom:20px;
+  background:linear-gradient(135deg, var(--forest), var(--dark));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.section-head p{
+  color:var(--muted);
+  margin-top:18px;
+  line-height:1.8;
+  font-size:1.05rem;
+}
+
+/* FEATURED GRID */
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+  margin-bottom:40px;
+}
+
+.feature-card{
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  border:1px solid rgba(6,78,59, 0.08);
+  transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 1s ease-out;
+  text-align:center;
+}
+
+.feature-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+  border-color:var(--sage-m);
+}
+
+.feature-card h3{
+  font-size:1.6rem;
+  margin-bottom:15px;
+  color:var(--text);
+}
+
+.feature-card p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* CATEGORY GRID */
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:20px;
+}
+
+.cat-card{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  border:2px solid var(--border);
+  text-align:center;
+  font-weight:600;
+  font-size:1.1rem;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  animation: fadeInUp 1s ease-out;
+}
+
+.cat-card:hover{
+  transform:translateY(-5px);
+  background:linear-gradient(135deg, var(--sage), #fff);
+  border-color:var(--sage-m);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* RESOURCES LAYOUT */
+.resource-content{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* SEARCH BOX */
+.search-box{
+  background:#fff;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  margin-bottom:40px;
+  border:1px solid var(--border);
+}
+
+.search-box input{
+  width:100%;
+  padding:16px 18px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  outline:none;
+  font-size:1rem;
+  transition:all 0.3s ease;
+}
+
+.search-box input:focus{
+  border-color:var(--forest);
+  box-shadow:0 0 0 3px rgba(6,78,59,0.1);
+}
+
+/* LEFT COLUMN */
+.left-col{
+  animation: slideInLeft 1s ease-out;
+}
+
+.resource-section{
+  margin-bottom:50px;
+}
+
+.resource-section h3{
+  font-size:1.4rem;
+  margin-bottom:20px;
+  color:var(--text);
+  padding-bottom:10px;
+  border-bottom:2px solid var(--sage-m);
+  display:inline-block;
+}
+
+.resource-card{
+  display:block;
+  padding:18px 20px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin-bottom:12px;
+  text-decoration:none;
+  color:var(--text);
+  transition:all 0.3s ease;
+  font-weight:500;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.resource-card::after{
+  content: '→';
+  opacity:0;
+  transition:all 0.3s ease;
+}
+
+.resource-card:hover{
+  background:linear-gradient(135deg, var(--sage), #fff);
+  transform:translateX(5px);
+  border-color:var(--forest);
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.resource-card:hover::after{
+  opacity:1;
+  color:var(--forest);
+}
+
+/* SIDEBAR */
+.sidebar{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  border:1px solid var(--border);
+  animation: slideInRight 1s ease-out;
+  position:sticky;
+  top:100px;
+}
+
+.sidebar h3{
+  font-size:1.3rem;
+  margin-bottom:25px;
+  color:var(--text);
+}
+
+.sidebar ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.sidebar li{
+  margin-bottom:16px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+  font-weight:500;
+  color:var(--forest);
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+
+.sidebar li:last-child{
+  border-bottom:none;
+  margin-bottom:0;
+  padding-bottom:0;
+}
+
+.sidebar li:hover{
+  color:var(--dark);
+  transform:translateX(5px);
+}
+
+/* CTA BANNER */
+.info-banner{
+  padding:40px;
+  background:linear-gradient(135deg, rgba(6, 78, 59, 0.1), rgba(167, 243, 208, 0.1));
+  border-radius:20px;
+  border:2px solid var(--sage-m);
+  text-align:center;
+  margin:40px 0;
+}
+
+.info-banner h3{
+  font-size:1.3rem;
+  color:var(--text);
+  margin-bottom:10px;
+}
+
+.info-banner p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* CTA SECTION */
+.cta{
+  padding:80px 5%;
+  background:linear-gradient(135deg,var(--forest),var(--dark));
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:40px;
+  border-radius:28px;
+  margin:60px 5% 0;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+  overflow:hidden;
+}
+
+.cta::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-50%;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+  border-radius:50%;
+  animation:float 6s ease-in-out infinite;
+}
+
+.cta > div:first-child{
+  flex:1;
+  position:relative;
+  z-index:1;
+}
+
+.cta h2{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+.cta p{
+  opacity:0.9;
+}
+
+.cta-buttons{
+  display:flex;
+  gap:15px;
+  position:relative;
+  z-index:1;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--gold);
+  color:#fff;
+  padding:12px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  border:none;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  background:#b45309;
+  box-shadow:0 10px 25px rgba(217,119,6,0.3);
+}
+
+.btn.light{
+  background:#fff;
+  color:var(--forest);
+  border:2px solid #fff;
+}
+
+.btn.light:hover{
+  background:var(--sage);
+  color:var(--forest);
+}
+
+/* FOOTER */
+footer{
+  background:var(--forest-dark);
+  color:#fff;
+  padding:80px 5% 40px;
+  width:100%;
+  display:block;
+}
+
+.f-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:50px;
+  margin-bottom:60px;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.f-col p{
+  color:rgba(255,255,255,0.65);
+  line-height:1.8;
+  margin-top:20px;
+  font-size:.95rem;
+}
+
+.f-col h4{
+  color:#fff;
+  font-size:1.1rem;
+  margin-bottom:24px;
+  font-weight:600;
+}
+
+.f-links{
+  list-style:none;
+}
+
+.f-links li{
+  margin-bottom:12px;
+}
+
+.f-links a{
+  color:rgba(255,255,255,0.65);
+  text-decoration:none;
+  transition:color 0.3s;
+}
+
+.f-links a:hover{
+  color:var(--sage-m);
+}
+
+.f-bot{
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:30px;
+  text-align:center;
+  color:rgba(255,255,255,0.45);
+  font-size:.85rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .resource-content{grid-template-columns:1fr;}
+  .sidebar{position:static;margin-top:40px;}
+  .f-grid{grid-template-columns:1.2fr 1fr 1fr 1fr;}
+}
+
+@media(max-width:768px){
+  nav{padding:15px 5%;flex-wrap:wrap;}
+  .hero{padding:100px 5%;margin-top:60px;}
+  .hero h1{font-size:2.2rem;}
+  .hero p{font-size:1rem;}
+  .section{padding:80px 5%;}
+  .section-head h2{font-size:2rem;}
+  .featured-grid{grid-template-columns:1fr;}
+  .category-grid{grid-template-columns:repeat(2, 1fr);}
+  .hero-links{flex-direction:column;}
+  .hero-links a{width:100%;}
+  .f-grid{grid-template-columns:1fr;gap:30px;}
+  .cta{padding:50px 5%;margin:40px 5%;flex-direction:column;text-align:center;}
+  .cta h2{font-size:1.8rem;}
+  .cta-buttons{width:100%;flex-direction:column;}
+  .cta-buttons a{width:100%;}
+}
+
+@media(max-width:480px){
+  .hero-inner{animation:none;}
+  .hero h1{font-size:1.6rem;}
+  .section-head h2{font-size:1.6rem;}
+  .category-grid{grid-template-columns:1fr;}
+  .sidebar{padding:20px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="brand" onclick="window.location.href='index.html'" style="cursor:pointer; display:flex; align-items:center; gap:12px;">
+    <img src="images/logo.png" alt="MJD Logo" style="height: 45px;">
+  </div>
+  <ul class="nav-menu">
+    <li><a href="index.html" class="nv-lnk">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="nv-lnk" style="display:flex; align-items:center; gap: 4px;">About Us <span style="font-size:0.7em">▼</span></a>
+      <div class="dropdown-content">
+        <a href="about.html">About</a>
+        <a href="fees.html">Fees & Billing</a>
+        <a href="practice-information.html">Practice Information</a>
+      </div>
+    </li>
+    <li><a href="patient-forms.html" class="nv-lnk">Patient Forms</a></li>
+    <li><a href="career.html" class="nv-lnk">Careers</a></li>
+    <li><a href="links-and-res.html" class="nv-lnk act">Links & Resources</a></li>
+    <li><a href="contact.html" class="nv-lnk">Contact Us</a></li>
+    <li><a href="index.html#services" class="nv-lnk">Services</a></li>
+    <li><a href="index.html#team" class="nv-lnk">Care Team</a></li>
+  </ul>
+  <button class="btn-gold" onclick="window.location.href='index.html#booking'">Book Appointment</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">📚 Trusted Resources</span>
+    <h1>Health guidance you can rely on for your whole family.</h1>
+    <p>Explore curated local and national links for wellness, chronic care, mental health and everyday support.</p>
+    <div class="hero-links">
+      <a href="#mental">🧠 Mental Health</a>
+      <a href="#vaccines">💉 Vaccination</a>
+      <a href="#heart">❤️ Heart Health</a>
+      <a href="#chronic">🫀 Chronic Care</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CATEGORIES -->
+<section class="section light">
+  <div class="container">
+    <div class="section-head">
+      <h2>Featured Health Topics</h2>
+      <p>Key resources to support your health and wellness journey</p>
+    </div>
+    <div class="featured-grid">
+      <div class="feature-card">
+        <div style="font-size:3rem;margin-bottom:15px;">🧠</div>
+        <h3>Mental Health</h3>
+        <p>Support and crisis services available 24/7 to help you stay calm and connected.</p>
+      </div>
+      <div class="feature-card">
+        <div style="font-size:3rem;margin-bottom:15px;">💉</div>
+        <h3>Vaccination Info</h3>
+        <p>Find current immunisation schedules and safe practice guidelines for everyone.</p>
+      </div>
+      <div class="feature-card">
+        <div style="font-size:3rem;margin-bottom:15px;">❤️</div>
+        <h3>Heart Health</h3>
+        <p>Access prevention tips, cardiac care resources and healthy living advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BROWSE BY CATEGORY -->
+<section class="section accent">
+  <div class="container">
+    <div class="section-head">
+      <h2>Browse by Category</h2>
+      <p>Find resources tailored to your health interests</p>
+    </div>
+    <div class="category-grid" style="max-width:1000px;margin:0 auto;">
+      <div class="cat-card">🫁 Asthma & Respiratory</div>
+      <div class="cat-card">🧠 Mental Health</div>
+      <div class="cat-card">🩺 General Health</div>
+      <div class="cat-card">🧬 Cancer Awareness</div>
+      <div class="cat-card">🍬 Diabetes Support</div>
+      <div class="cat-card">💊 Medications</div>
+      <div class="cat-card">🤰 Pregnancy & Birth</div>
+      <div class="cat-card">👶 Child Health</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES SECTION -->
+<section class="section light">
+  <div class="container resource-content">
+    <div class="left-col">
+      <div class="search-box">
+        <input type="text" placeholder="🔍 Search resources...">
+      </div>
+
+      <div class="resource-section" id="mental">
+        <h3>Mental Health Support</h3>
+        <a href="https://www.beyondblue.org.au" class="resource-card">
+          <span>Beyond Blue - Mental Health Support</span>
+        </a>
+        <a href="https://www.lifeline.org.au" class="resource-card">
+          <span>Lifeline - Crisis Support 24/7</span>
+        </a>
+        <a href="https://www.blackdoginstitute.org.au" class="resource-card">
+          <span>Black Dog Institute - Depression & Mood</span>
+        </a>
+        <a href="https://www.mifellowship.org" class="resource-card">
+          <span>Mind & Mood Support Network</span>
+        </a>
+      </div>
+
+      <div class="resource-section" id="vaccines">
+        <h3>Immunisation & Vaccination</h3>
+        <a href="https://www.immunise.health.gov.au" class="resource-card">
+          <span>National Immunisation Program Schedule</span>
+        </a>
+        <a href="https://www.safetyandquality.gov.au" class="resource-card">
+          <span>Vaccination Safety Information</span>
+        </a>
+        <a href="https://www.ncirs.org.au/ncirswebsite.nsf" class="resource-card">
+          <span>NSW Immunisation Repository</span>
+        </a>
+      </div>
+
+      <div class="resource-section" id="chronic">
+        <h3>Chronic Disease Management</h3>
+        <a href="https://www.diabetes.org.au" class="resource-card">
+          <span>Diabetes Australia - Diabetes Support</span>
+        </a>
+        <a href="https://asthma.org.au" class="resource-card">
+          <span>Asthma Australia - Respiratory Health</span>
+        </a>
+        <a href="https://www.heartfoundation.org.au" class="resource-card">
+          <span>National Heart Foundation Australia</span>
+        </a>
+      </div>
+
+      <div class="resource-section" id="general">
+        <h3>General Health Resources</h3>
+        <a href="https://www.healthdirect.gov.au" class="resource-card">
+          <span>Health Direct - Trusted Health Information</span>
+        </a>
+        <a href="https://www.betterhealth.vic.gov.au" class="resource-card">
+          <span>Better Health Channel - Victoria</span>
+        </a>
+        <a href="https://www.canceraustralia.gov.au" class="resource-card">
+          <span>Cancer Australia - Cancer Information</span>
+        </a>
+      </div>
+
+      <div class="info-banner">
+        <h3>📋 About These Resources</h3>
+        <p>External links are provided for educational purposes. We aim to share trusted resources, but cannot guarantee all information is current or complete. Always consult with our medical team for personalized advice.</p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h3>Quick Access</h3>
+      <ul>
+        <li>🤰 Pregnancy & Antenatal</li>
+        <li>👶 Child & Baby Health</li>
+        <li>🏥 Emergency Services</li>
+        <li>👨‍👩‍👧 Family Planning</li>
+        <li>💉 Immunisation Info</li>
+        <li>🧠 Mental Health Support</li>
+        <li>❤️ Heart & Vascular</li>
+        <li>🦴 Bone Health</li>
+        <li>👵 Aged Care</li>
+        <li>🏃 Fitness & Wellness</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div>
+    <h2>Need Personalized Guidance?</h2>
+    <p>Our experienced healthcare team can help direct you to the best resources for your situation.</p>
+  </div>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn">Book Appointment</a>
+    <a href="tel:0755945551" class="btn light">Call Us Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-grid">
+    <div class="f-col">
+      <div class="brand" style="margin-bottom:20px; cursor:pointer;" onclick="window.location.href='index.html'">
+        <img src="images/logo.png" alt="MJD Logo" style="width: 240px; height: auto; filter: brightness(0) invert(1);">
+      </div>
+      <p>Premium healthcare prioritizing relationships, preventative medicine, and comprehensive longevity for your entire family.</p>
+    </div>
+    <div class="f-col">
+      <h4>Navigation</h4>
+      <ul class="f-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="patient-forms.html">Patient Forms</a></li>
+        <li><a href="career.html">Careers</a></li>
+        <li><a href="links-and-res.html">Links & Resources</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Clinic Hours</h4>
+      <ul class="f-links" style="pointer-events:none">
+        <li><a>Mon-Fri: 8AM - 6PM</a></li>
+        <li><a>Saturday: 9AM - 2PM</a></li>
+        <li><a>Sunday: Closed (On-Call)</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact Us</h4>
+      <ul class="f-links">
+        <li><a href="tel:0755945551">(07) 5594 5551</a></li>
+        <li><a href="mailto:emeraldlakesmedical@outlook.com">emeraldlakesmedical@outlook.com</a></li>
+        <li><a>10/3027 The Boulevard<br>Carrara QLD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bot">
+    &copy; 2026 MJD Health Medical Clinics. All rights reserved. HIPAA Compliant.
+  </div>
+</footer>
+
+<script>
+// Scroll effect on navbar
+document.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Stagger animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = `fadeInUp 1s ease-out ${index * 0.1}s both`;
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.feature-card, .cat-card, .resource-card').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
