@@ -67,26 +67,6 @@
     }
 
     /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-      transition: box-shadow 0.3s;
-    }
-
-    nav.scrolled {
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    }
 
     .brand {
       display: flex;
@@ -122,38 +102,6 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 600;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 38px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-menu a:hover,
-    .nav-menu a.act {
-      color: var(--forest-g);
-    }
-
-    .nav-menu a.act::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--forest-g);
-      border-radius: 2px;
     }
 
     .btn-gold {
@@ -389,57 +337,6 @@
     }
 
     /* FOOTER */
-    footer {
-      background: var(--forest-dark);
-      padding: 80px 5% 40px;
-      color: #fff;
-    }
-
-    .f-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 50px;
-      margin-bottom: 60px;
-    }
-
-    .f-col p {
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.8;
-      margin-top: 20px;
-      font-size: 0.95rem;
-    }
-
-    .f-col h4 {
-      color: #fff;
-      font-size: 1.1rem;
-      margin-bottom: 24px;
-    }
-
-    .f-links {
-      list-style: none;
-    }
-
-    .f-links li {
-      margin-bottom: 12px;
-    }
-
-    .f-links a {
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .f-links a:hover {
-      color: var(--sage-m);
-    }
-
-    .f-bot {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 30px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 0.85rem;
-    }
 
     /* --- SERVICES PAGE CSS --- */
     .page-header {
@@ -765,40 +662,6 @@
     }
 
     /* CHAT & CALL WIDGETS */
-    .wc-btn {
-      position: fixed;
-      right: 30px;
-      border: none;
-      border-radius: 50%;
-      color: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-      z-index: 2000;
-    }
-
-    .wc-chat {
-      bottom: 30px;
-      width: 60px;
-      height: 60px;
-      background: var(--forest-dark);
-      font-size: 1.5rem;
-    }
-
-    .wc-call {
-      bottom: 105px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #10b981, #059669);
-      font-size: 1.5rem;
-    }
-
-    .wc-btn:hover {
-      transform: scale(1.1);
-    }
 
     .wc-call.calling {
       background: #ef4444;
@@ -880,31 +743,6 @@
     }
 
     /* AI TEXT CHAT */
-    .chat-pnl {
-      position: fixed;
-      right: 30px;
-      bottom: 105px;
-      width: 360px;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      transform: translateY(20px);
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s;
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .chat-pnl.open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-      height: 550px;
-    }
 
     .cp-head {
       background: var(--forest-dark);
@@ -1016,50 +854,8 @@
     }
 
     /* Dropdown CSS */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      min-width: 180px;
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      top: 100%;
-      left: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-      animation: fadeIn 0.2s ease;
-    }
-
-    .dropdown-content a {
-      color: var(--forest-dark) !important;
-      padding: 14px 20px;
-      text-decoration: none;
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border-bottom: 1px solid var(--sage-m);
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .dropdown-content a:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown-content a:hover {
-      background-color: var(--sage-l);
-      color: var(--forest-g) !important;
-    }
   </style>
+  <link rel="stylesheet" href="shared-layout.css">
 </head>
 
 <body>

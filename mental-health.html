@@ -49,35 +49,8 @@
 
     /* NAVBAR */
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      padding: 18px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    }
-
     .brand img {
       height: 48px;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .nav-menu a {
-      color: var(--muted);
-      font-weight: 500;
-      transition: 0.3s;
     }
 
     .nav-menu a:hover,
@@ -86,41 +59,6 @@
     }
 
     /* DROPDOWN */
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      position: absolute;
-      top: 140%;
-      left: 0;
-      width: 250px;
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: 0.3s;
-    }
-
-    .dropdown:hover .dropdown-content {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 16px 22px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .dropdown-content a:hover {
-      background: var(--sage);
-    }
 
     .btn-book {
       background: var(--gold);
@@ -133,41 +71,6 @@
     }
 
     /* FLOATING CHAT & CALL WIDGETS */
-
-    .wc-btn {
-      position: fixed;
-      right: 30px;
-      border: none;
-      border-radius: 50%;
-      color: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-      z-index: 2000;
-    }
-
-    .wc-chat {
-      bottom: 30px;
-      width: 60px;
-      height: 60px;
-      background: var(--forest-dark);
-      font-size: 1.5rem;
-    }
-
-    .wc-call {
-      bottom: 105px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #10b981, #059669);
-      font-size: 1.5rem;
-    }
-
-    .wc-btn:hover {
-      transform: scale(1.1);
-    }
 
     .wc-call.calling {
       background: #ef4444;
@@ -250,32 +153,6 @@
     }
 
     /* CHAT PANEL */
-
-    .chat-pnl {
-      position: fixed;
-      right: 30px;
-      bottom: 105px;
-      width: 360px;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      transform: translateY(20px);
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s;
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .chat-pnl.open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-      height: 550px;
-    }
 
     .cp-head {
       background: var(--forest-dark);
@@ -584,55 +461,6 @@
 
     /* FOOTER */
 
-    footer {
-      background: var(--forest-dark);
-      padding: 90px 5% 40px;
-      margin-top: 100px;
-      color: #fff;
-    }
-
-    .f-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 50px;
-      margin-bottom: 50px;
-    }
-
-    .f-col h4 {
-      margin-bottom: 20px;
-    }
-
-    .f-col p {
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.8;
-    }
-
-    .f-links {
-      list-style: none;
-    }
-
-    .f-links li {
-      margin-bottom: 12px;
-    }
-
-    .f-links a {
-      color: rgba(255, 255, 255, 0.7);
-      transition: color 0.2s;
-    }
-
-    .f-links a:hover {
-      color: var(--sage);
-    }
-
-    .f-bot {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 30px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.45);
-    }
-
     /* RESPONSIVE */
 
     @media(max-width:992px) {
@@ -646,17 +474,9 @@
         top: 0;
       }
 
-      .f-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
     }
 
     @media(max-width:768px) {
-
-      .nav-menu {
-        display: none;
-      }
 
       .hero h1 {
         font-size: 2.5rem;
@@ -670,12 +490,9 @@
         padding: 35px;
       }
 
-      .f-grid {
-        grid-template-columns: 1fr;
-      }
-
     }
   </style>
+  <link rel="stylesheet" href="shared-layout.css">
 </head>
 
 <body>
