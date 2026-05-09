@@ -1,3 +1,68 @@
+// ----- SHARED LAYOUT BOOTSTRAP -----
+function loadSharedLayoutCss() {
+  if (document.querySelector('link[data-shared-layout="true"]')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'shared-layout.css';
+  link.setAttribute('data-shared-layout', 'true');
+  document.head.appendChild(link);
+}
+
+function setupMobileMenu() {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+
+  let menuBtn = nav.querySelector('.menu-toggle');
+  if (!menuBtn) {
+    menuBtn = document.createElement('button');
+    menuBtn.className = 'menu-toggle';
+    menuBtn.type = 'button';
+    menuBtn.setAttribute('aria-label', 'Open menu');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.innerHTML = '&#9776;';
+    nav.insertBefore(menuBtn, nav.querySelector('.nav-menu'));
+  }
+
+  const navMenu = nav.querySelector('.nav-menu');
+  if (!navMenu) return;
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.innerHTML = isOpen ? '&times;' : '&#9776;';
+    document.body.style.overflow = isOpen && window.innerWidth <= 1024 ? 'hidden' : '';
+  });
+
+  navMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '&#9776;';
+      document.body.style.overflow = '';
+    });
+  });
+
+  navMenu.querySelectorAll('.dropdown > a').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      if (window.innerWidth > 1024) return;
+      event.preventDefault();
+      const dropdown = trigger.parentElement;
+      dropdown.classList.toggle('open');
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      nav.classList.remove('nav-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '&#9776;';
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+loadSharedLayoutCss();
+
 // ----- NAVIGATION & ROUTING SPA -----
 function goPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -21,6 +86,8 @@ window.addEventListener('scroll', () => {
 
 // Setup min date for booking & parse hash on load
 window.addEventListener('DOMContentLoaded', () => {
+  setupMobileMenu();
+
   const dInp = document.getElementById('bdate');
   if (dInp) {
     const today = new Date().toISOString().split('T')[0];

@@ -603,6 +603,28 @@
       color: var(--forest);
       font-weight: 600;
     }
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-gold:hover {
+      background: #b45309;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+    }
 
     /* CTA */
     .cta {
@@ -751,7 +773,7 @@
 <body>
 
   <!-- NAV -->
-  <nav id="navbar">
+ <nav id="navbar">
     <div class="brand" onclick="window.location.href='index.html'" style="cursor:pointer; display:flex; align-items:center;">
       <img src="images/logo.png" alt="MJD Logo" style="height: 45px;">
     </div>
@@ -787,7 +809,7 @@
       <li><a href="index.html#services" class="nv-lnk">Services</a></li>
       <li><a href="index.html#team" class="nv-lnk">Care Team</a></li>
     </ul>
-       <button class="btn-book" onclick="window.location.href='index.html#booking'">Book Appointment</button>
+  <button class="btn-gold" onclick="window.location.href='index.html#booking'">Book Appointment</button>
   </nav>
 
   <!-- HERO -->
