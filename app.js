@@ -140,16 +140,22 @@ let retellClient = null;
 let callActive = false;
 
 function openCall() {
-  document.getElementById('vMod').classList.add('open');
+  const vMod = document.getElementById('vMod');
+  if (!vMod) return;
+  vMod.classList.add('open');
   setCStat('Ready to assist you 24/7.', '');
-  document.getElementById('cStart').style.display = 'inline-block';
-  document.getElementById('cEnd').style.display = 'none';
-  document.getElementById('cTog').classList.remove('calling');
+  const cStart = document.getElementById('cStart');
+  const cEnd = document.getElementById('cEnd');
+  const cTog = document.getElementById('cTog');
+  if (cStart) cStart.style.display = 'inline-block';
+  if (cEnd) cEnd.style.display = 'none';
+  if (cTog) cTog.classList.remove('calling');
 }
 
 function closeCall() {
   if (callActive) endCallVoice();
-  document.getElementById('vMod').classList.remove('open');
+  const vMod = document.getElementById('vMod');
+  if (vMod) vMod.classList.remove('open');
 }
 
 function setCStat(text, type) {
@@ -236,65 +242,8 @@ async function startCallVoice() {
 function endCallVoice() {
   if (retellClient) { retellClient.stopCall(); retellClient = null; }
   callActive = false;
-  document.getElementById('cTog').classList.remove('calling');
+  const cTog = document.getElementById('cTog');
+  if (cTog) cTog.classList.remove('calling');
 }
 
-// ----- TEXT CHATBOT -----
-function openChat() {
-  const pnl = document.getElementById('cPnl');
-  pnl.classList.add('open');
-  if(!document.getElementById('cBody').innerHTML) {
-    addCMsg("Hello! I'm your MJD Health digital assistant. How can I help you?", 'sys');
-    setCOpts([
-      { lbl: 'Book Appointment', cb: () => replyToUser('book') },
-      { lbl: 'Services', cb: () => replyToUser('serv') }
-    ]);
-  }
-}
-
-function closeChat() { document.getElementById('cPnl').classList.remove('open'); }
-
-function addCMsg(txt, type) {
-  const b = document.getElementById('cBody');
-  const d = document.createElement('div');
-  d.className = 'c-msg ' + (type === 'usr' ? 'cm-usr' : 'cm-sys');
-  d.innerText = txt;
-  b.appendChild(d);
-  b.scrollTop = b.scrollHeight;
-}
-
-function setCOpts(opts) {
-  const c = document.getElementById('cOpts');
-  c.innerHTML = '';
-  opts.forEach(o => {
-    const btn = document.createElement('button');
-    btn.innerText = o.lbl;
-    btn.onclick = () => { addCMsg(o.lbl, 'usr'); o.cb(); };
-    c.appendChild(btn);
-  });
-}
-
-function sendChat() {
-  const i = document.getElementById('cInp');
-  const v = i.value.trim();
-  if(v) {
-    addCMsg(v, 'usr');
-    i.value = '';
-    setTimeout(() => replyToUser(v), 400);
-  }
-}
-
-function replyToUser(txt) {
-  const t = txt.toLowerCase();
-  setCOpts([]);
-  
-  if (t.includes('book') || t.includes('appoint')) {
-    addCMsg("I can help with that. Would you like to use our secure online booking portal?", 'sys');
-    setCOpts([{ lbl: 'Go to Portal', cb: () => { goPage('booking'); closeChat(); } }]);
-  } else if (t.includes('serv') || t.includes('treatment')) {
-    addCMsg("We offer Pediatrics, Adult Care, Chronic Disease Management, and more. Would you like to see the full list?", 'sys');
-    setCOpts([{ lbl: 'View Services', cb: () => { goPage('services'); closeChat(); } }]);
-  } else {
-    addCMsg("I'm equipped to help with basic scheduling and info. Feel free to use the phone icon to speak with our AI Voice Receptionist for deeper detail!", 'sys');
-  }
-}
+// Text chat UI + logic lives in chat-widget.js (loaded after this file).
