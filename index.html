@@ -1066,11 +1066,11 @@
 
   <!-- NAVBAR -->
   <nav id="navbar">
-    <div class="brand" onclick="goPage('home')" style="cursor:pointer; display:flex; align-items:center;">
+    <div class="brand" onclick="window.location.href='index.html'" style="cursor:pointer; display:flex; align-items:center;">
       <img src="images/logo.png" alt="MJD Logo" style="height: 45px;">
     </div>
     <ul class="nav-menu">
-      <li><a href="#home" class="nv-lnk act" data-tg="home" onclick="goPage('home')">Home</a></li>
+      <li><a href="index.html" class="nv-lnk">Home</a></li>
       <li class="dropdown">
         <a href="about.html" class="nv-lnk" style="display:flex; align-items:center; gap: 4px;">About Us <span
             style="font-size:0.7em">▼</span></a>
@@ -1098,10 +1098,10 @@
       <li><a href="career.html" class="nv-lnk">Careers</a></li>
       <li><a href="links-and-res.html" class="nv-lnk">Links & Resources</a></li>
       <li><a href="contact.html" class="nv-lnk">Contact Us</a></li>
-      <li><a href="#services" class="nv-lnk" data-tg="services" onclick="goPage('services')">Services</a></li>
-      <li><a href="#team" class="nv-lnk" data-tg="team" onclick="goPage('team')">Care Team</a></li>
+      <li><a href="index.html#services" class="nv-lnk">Services</a></li>
+      <li><a href="index.html#team" class="nv-lnk">Care Team</a></li>
     </ul>
-    <button class="btn-gold" onclick="goPage('booking')">Book Appointment</button>
+    <button class="btn-gold" onclick="window.location.href='index.html#booking'">Book Appointment</button>
   </nav>
 
   <!-- HOME PAGE -->
@@ -1326,8 +1326,8 @@
           </div>
         </div>
         <div style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-          <img src="https://images.unsplash.com/photo-1538108149393-cebb47ac50bc?q=80&w=1200&auto=format&fit=crop"
-            style="height: 250px;" alt="Imaging">
+         <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop"
+            style="height: 250px;" alt="Comfort Rooms">
           <div style="padding: 30px;">
             <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Advanced Imaging Center</h3>
             <p style="color: var(--text-muted);">From high-resolution ultrasound to digital X-rays, our imaging suite
@@ -1335,8 +1335,9 @@
           </div>
         </div>
         <div style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop"
-            style="height: 250px;" alt="Comfort Rooms">
+          
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop"
+            style="height: 250px;" alt="Lab">
           <div style="padding: 30px;">
             <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Premium Patient Suites</h3>
             <p style="color: var(--text-muted);">Experience comfort and privacy in our beautifully designed exam and
@@ -1795,8 +1796,8 @@
       <div class="team-grid">
         <div class="dr-card" onclick="goPage('booking')">
           <div class="dr-img"><img
-              src="https://images.unsplash.com/photo-1594824432258-f9a749eb4037?q=80&w=800&auto=format&fit=crop"
-              alt="Dr. Evans"></div>
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop"
+              alt="Dr. Miller"></div>
           <div class="dr-info">
             <div class="dr-role">Head of Pediatrics</div>
             <h3>Dr. Samantha Evans</h3>
@@ -1828,8 +1829,8 @@
         </div>
         <div class="dr-card" onclick="goPage('booking')">
           <div class="dr-img"><img
-              src="https://images.unsplash.com/photo-1590611936760-eeb9bc500b75?q=80&w=800&auto=format&fit=crop"
-              alt="Dr. Sarah"></div>
+               src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop"
+              alt="Dr. Miller"></div>
           <div class="dr-info">
             <div class="dr-role">Women's Health</div>
             <h3>Dr. Sarah Jenkins</h3>
@@ -1968,7 +1969,7 @@
   <footer>
     <div class="f-grid">
       <div class="f-col">
-        <div class="brand" style="margin-bottom:20px; cursor:pointer;" onclick="goPage('home')">
+        <div class="brand" style="margin-bottom:20px; cursor:pointer;" onclick="window.location.href='index.html'">
           <img src="images/logo.png" alt="MJD Logo"
             style="width: 240px; height: auto; filter: brightness(0) invert(1);">
         </div>
@@ -1978,11 +1979,11 @@
       <div class="f-col">
         <h4>Navigation</h4>
         <ul class="f-links">
-          <li><a href="#" onclick="goPage('home')">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="#" onclick="goPage('services')">Medical Services</a></li>
-          <li><a href="#" onclick="goPage('team')">Meet The Team</a></li>
-          <li><a href="#" onclick="goPage('booking')">Patient Portal</a></li>
+          <li><a href="index.html#services">Medical Services</a></li>
+          <li><a href="index.html#team">Meet The Team</a></li>
+          <li><a href="index.html#booking">Patient Portal</a></li>
         </ul>
       </div>
       <div class="f-col">
