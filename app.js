@@ -118,18 +118,64 @@ document.querySelectorAll('.st-btn').forEach(btn => {
 
 // Booking Submission
 function submitBooking(btn) {
+  const bfn = document.getElementById('bfn').value.trim();
+  const bln = document.getElementById('bln').value.trim();
+  const bem = document.getElementById('bem').value.trim();
+  const bph = document.getElementById('bph').value.trim();
   const bdate = document.getElementById('bdate').value;
-  const bfn = document.getElementById('bfn').value;
-  if (!bdate || !bfn) {
-    alert("Please provide at least your First Name and Preferred Date.");
+  const bprov = document.querySelector('select').value;
+  const breason = document.getElementById('breason').value.trim();
+
+  // Validate required fields
+  const req = ['bfn', 'bln', 'bem', 'bph', 'bdate'];
+  let ok = true;
+  req.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el || !el.value.trim()) {
+      if (el) el.style.borderColor = '#dc2626';
+      ok = false;
+    } else {
+      el.style.borderColor = '';
+    }
+  });
+
+  if (!ok) {
+    alert('Please fill in all required fields (First Name, Last Name, Email, Phone, Date).');
     return;
   }
+
   btn.textContent = 'Processing...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.style.display = 'none';
-    document.getElementById('bsuccess').style.display = 'block';
-  }, 1000);
+
+  const payload = {
+    firstname: bfn,
+    lastname: bln,
+    email: bem,
+    phone: bph,
+    provider: bprov,
+    date: bdate,
+    reason: breason
+  };
+
+  // Google Apps Script URL
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxAjEBDnp1sgg1uatd1qU3eyozjM493psMNhaUvpOEfG6zZqYaxf2S6YNJize9A9VM3bA/exec';
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+  })
+    .then(r => {
+      btn.style.display = 'none';
+      document.getElementById('bsuccess').style.display = 'block';
+      document.getElementById('bsuccess').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    })
+    .catch(e => {
+      console.error(e);
+      btn.textContent = 'Confirm Request';
+      btn.disabled = false;
+      alert('Oops! There was a problem. Please check your connection or try again.');
+    });
 }
 
 // ----- RETELL AI VOICE RECEPTIONIST -----
