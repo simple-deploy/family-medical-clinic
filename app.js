@@ -103,6 +103,17 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Handle hash changes for navigation
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash;
+  if(hash && hash.length > 1){
+    const h = hash.substring(1);
+    if(document.getElementById(h)){
+        goPage(h);
+    }
+  }
+});
+
 
 // Services Tab Switching
 document.querySelectorAll('.st-btn').forEach(btn => {
