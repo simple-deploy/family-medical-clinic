@@ -838,6 +838,43 @@
       cursor: pointer;
     }
 
+    /* Home: prioritize CTA + map / hours (all viewports) */
+    .home-prioritize-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      white-space: nowrap;
+      line-height: 1.2;
+      max-width: calc(100% - 8px);
+      margin: 0 auto;
+      padding: 16px 28px;
+      font-size: 1.05rem;
+    }
+
+    .home-location-actions {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 14px;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .home-location-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1.2;
+      box-sizing: border-box;
+      padding: 12px 16px !important;
+      font-size: 0.95rem !important;
+    }
+
     /* Responsive */
     @media(max-width: 900px) {
 
@@ -850,6 +887,253 @@
       .serv-nav {
         position: static;
         margin-bottom: 30px;
+      }
+    }
+
+    /* Home page — phones & small tablets */
+    @media (max-width: 768px) {
+      .home-hero {
+        min-height: unset;
+        height: auto;
+        padding: 20px 4% 36px;
+        align-items: flex-end;
+        box-sizing: border-box;
+      }
+
+      .home-hero::before {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0.82) 42%,
+          rgba(255, 255, 255, 0.96) 100%
+        );
+      }
+
+      .home-hero .hero-content {
+        max-width: none;
+        width: 100%;
+        padding: 22px 18px 24px;
+        border-radius: 18px;
+        margin-top: min(18vw, 100px);
+        box-sizing: border-box;
+      }
+
+      .home-hero .hero-content h1 {
+        font-size: clamp(1.6rem, 7.2vw, 2.35rem);
+        line-height: 1.12;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+      }
+
+      .home-hero .hero-content p {
+        font-size: 0.93rem;
+        line-height: 1.65;
+        margin-bottom: 20px;
+      }
+
+      .home-hero .hero-tag {
+        font-size: 0.72rem;
+        letter-spacing: 1.6px;
+        margin-bottom: 10px;
+      }
+
+      .home-hero .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+        width: 100%;
+      }
+
+      .home-hero .hero-btns .btn-gold,
+      .home-hero .hero-btns .btn-forest {
+        width: 100%;
+        min-height: 50px;
+        padding: 14px 20px;
+        font-size: 0.94rem;
+        border-radius: 999px;
+        box-sizing: border-box;
+      }
+
+      .home-hero .hero-btns .btn-forest {
+        min-height: 50px;
+      }
+
+      .trust-sec {
+        padding: 52px 4%;
+      }
+
+      .t-grid {
+        gap: 32px;
+      }
+
+      .t-img img {
+        height: clamp(220px, 55vw, 360px);
+      }
+
+      .t-badge {
+        left: 10px;
+        right: 10px;
+        bottom: 14px;
+        max-width: calc(100% - 20px);
+        padding: 14px 16px;
+        border-radius: 16px;
+      }
+
+      .t-content h2 {
+        font-size: clamp(1.45rem, 5.2vw, 2rem);
+      }
+
+      .qs {
+        padding: 36px 4%;
+        gap: 22px 14px;
+      }
+
+      .q-num {
+        font-size: clamp(2rem, 7.5vw, 3rem);
+      }
+
+      .q-lbl {
+        font-size: 0.65rem;
+        letter-spacing: 0.06em;
+        line-height: 1.35;
+      }
+
+      .home-notices {
+        padding: 36px 4% 20px !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .home-notices > div {
+        padding: 22px 18px !important;
+        border-radius: 14px !important;
+      }
+
+      .home-notices > div h3 {
+        font-size: 1.12rem !important;
+        margin-bottom: 12px !important;
+      }
+
+      .home-notices > div p {
+        font-size: 0.9rem !important;
+      }
+
+      .home-prioritize-cta {
+        padding: 56px 4% 48px !important;
+      }
+
+      .home-prioritize-heading {
+        font-size: clamp(1.4rem, 5.6vw, 2.35rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 16px !important;
+        padding: 0 2px;
+      }
+
+      .home-prioritize-lead {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 24px !important;
+        padding: 0 2px;
+      }
+
+      .home-prioritize-btn {
+        display: flex !important;
+        width: 100% !important;
+        max-width: min(100%, 380px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 16px 18px !important;
+        font-size: clamp(0.8rem, 3.4vw, 0.98rem) !important;
+        letter-spacing: -0.015em;
+        min-height: 52px;
+      }
+
+      .home-location-section {
+        padding: 44px 4% !important;
+      }
+
+      .home-location-grid {
+        gap: 26px !important;
+      }
+
+      .home-location-map {
+        height: min(52vw, 280px) !important;
+        min-height: 200px;
+      }
+
+      .home-location-title {
+        font-size: clamp(1.28rem, 4.6vw, 1.95rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .home-location-hours {
+        grid-template-columns: 1fr !important;
+        gap: 2px 0 !important;
+        margin-bottom: 22px !important;
+        font-size: 0.9rem !important;
+      }
+
+      .home-location-hours > div:nth-child(odd) {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        font-weight: 600;
+        color: var(--forest-dark) !important;
+      }
+
+      .home-location-hours > div:nth-child(1) {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .home-location-hours > div:nth-child(even) {
+        color: var(--text-muted);
+        padding-bottom: 2px;
+      }
+
+      .home-location-actions {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 10px;
+        max-width: 100%;
+      }
+
+      .home-location-btn {
+        flex: none !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 50px;
+        padding: 14px 18px !important;
+        font-size: 0.94rem !important;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .home-hero {
+        padding: 16px 3.5% 28px;
+      }
+
+      .home-hero .hero-content {
+        padding: 18px 14px 20px;
+        margin-top: 12vw;
+      }
+
+      .qs .q-item {
+        flex: 1 1 42%;
+        min-width: 0;
+      }
+
+      .home-prioritize-btn {
+        max-width: 100% !important;
+        padding: 14px 12px !important;
+        font-size: 0.78rem !important;
+      }
+
+      .home-location-btn {
+        font-size: 0.88rem !important;
+        padding: 13px 14px !important;
       }
     }
 
@@ -869,7 +1153,7 @@
       <li><a href="index.html" class="nv-lnk">Home</a></li>
       <li class="dropdown">
         <a href="about.html" class="nv-lnk" style="display:flex; align-items:center; gap: 4px;">About Us <span
-            style="font-size:0.7em">▼</span></a>
+            class="nav-caret" style="font-size:0.7em">▼</span></a>
         <div class="dropdown-content">
           <a href="about.html">About</a>
           <a href="career.html">Careers</a>
@@ -881,7 +1165,7 @@
       <li><a href="patient-forms.html" class="nv-lnk">Patient Forms</a></li>
       <li class="dropdown">
         <a href="#" class="nv-lnk" style="display:flex; align-items:center; gap: 4px;">Medical Services <span
-            style="font-size:0.7em">▼</span></a>
+            class="nav-caret" style="font-size:0.7em">▼</span></a>
         <div class="dropdown-content">
           <a href="antenatal-care.html">Antenatal Care</a>
           <a href="ecg.html">ECG</a>
@@ -902,7 +1186,7 @@
 
   <!-- HOME PAGE -->
   <div id="home" class="page active">
-    <header class="hero">
+    <header class="hero home-hero">
       <div class="hero-content">
         <span class="hero-tag">A New standard of care</span>
         <h1>Exceptional Medical Care For <span>Your Family</span>.</h1>
@@ -965,8 +1249,8 @@
     </div>
 
     <!-- HEALTH NOTICES -->
-    <section
-      style="padding: 60px 5% 20px; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px;">
+    <section class="home-notices"
+      style="padding: 60px 5% 20px; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px;">
       <div style="background: var(--sage-l); padding: 40px; border-radius: 16px; border: 1px solid var(--sage-m);">
         <h3 style="font-size: 1.5rem; color: var(--forest-dark); margin-bottom: 20px;">NOTICE - Flu Vaccine</h3>
         <p style="color: var(--forest-g); line-height: 1.6; font-size: 0.95rem;">In 2026, residents aged 6 months and
@@ -1146,35 +1430,33 @@
     </section>
 
     <!-- NEW SECTION: CTA -->
-    <section style="padding: 120px 5%; background: var(--forest-g); color: #fff; text-align: center;">
-      <h2 style="font-size: 3rem; color: #fff; margin-bottom: 24px;">Ready To Prioritize Your Health?</h2>
-      <p style="font-size: 1.2rem; color: var(--sage-m); max-width: 600px; margin: 0 auto 40px;">Join thousands of
+    <section class="home-prioritize-cta" style="padding: 120px 5%; background: var(--forest-g); color: #fff; text-align: center;">
+      <h2 class="home-prioritize-heading" style="font-size: 3rem; color: #fff; margin-bottom: 24px;">Ready To Prioritize Your Health?</h2>
+      <p class="home-prioritize-lead" style="font-size: 1.2rem; color: var(--sage-m); max-width: 600px; margin: 0 auto 40px;">Join thousands of
         families who trust MJD Health with their most valuable asset. Schedule your comprehensive evaluation today.
       </p>
-      <button class="btn-gold" style="font-size: 1.1rem; padding: 18px 40px;" onclick="goPage('booking')">Schedule An
-        Appointment</button>
-    </section>
+      <button type="button" class="btn-gold home-prioritize-btn" onclick="goPage('booking')"><span class="home-prioritize-btn-text">Schedule An Appointment</span></button>
     </section>
 
     <!-- LOCATION DETAILS MAP -->
-    <section style="padding: 80px 5%; background: var(--white); border-top: 1px solid var(--border);">
-      <div
+    <section class="home-location-section" style="padding: 80px 5%; background: var(--white); border-top: 1px solid var(--border);">
+      <div class="home-location-grid"
         style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-        <div
+        <div class="home-location-map"
           style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); height: 400px; background: #ccc;">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.55160867015!2d153.308298!3d-27.9620579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b911a472b5d60b7%3A0x302a35af3deaf70!2sGold%20Coast%20QLD!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau"
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div>
-          <h2 style="font-size: 2.4rem; margin-bottom: 20px;">MJD Health Medical Clinics</h2>
+        <div class="home-location-copy">
+          <h2 class="home-location-title" style="font-size: 2.4rem; margin-bottom: 20px;">MJD Health Medical Clinics</h2>
           <p style="color: var(--text-muted); margin-bottom: 15px;">100 Healthway Drive, Suite 200, MedCity 4211</p>
           <p style="color: var(--text-muted); margin-bottom: 10px;"><strong>P:</strong> <span
               style="color: var(--forest-g);">(03) 1234 5678</span></p>
           <p style="color: var(--text-muted); margin-bottom: 30px;"><strong>E:</strong> <span
               style="color: var(--forest-g);">care@mjdhealth.com</span></p>
-          <div
+          <div class="home-location-hours"
             style="display: grid; grid-template-columns: 80px 1fr; gap: 10px; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 30px;">
             <div style="font-weight: 600; color: var(--forest-dark);">Mon - Fri</div>
             <div>8:00am - 6:00pm</div>
@@ -1183,11 +1465,10 @@
             <div style="font-weight: 600; color: var(--forest-dark);">Sunday</div>
             <div>Closed (On-call only)</div>
           </div>
-          <div style="display: flex; gap: 20px;">
-            <button class="btn-gold" style="padding: 12px 30px; font-size: 1rem;" onclick="goPage('booking')">Book
-              Online</button>
-            <button class="btn-forest"
-              style="padding: 12px 30px; font-size: 1rem; background: var(--slate); color: var(--forest-g); border: 2px solid var(--border);"
+          <div class="home-location-actions">
+            <button type="button" class="btn-gold home-location-btn home-location-btn--primary" onclick="goPage('booking')">Book Online</button>
+            <button type="button" class="btn-forest home-location-btn home-location-btn--secondary"
+              style="background: var(--slate); color: var(--forest-g); border: 2px solid var(--border);"
               onclick="goPage('team')">Learn More</button>
           </div>
         </div>

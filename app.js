@@ -28,6 +28,9 @@ function setupMobileMenu() {
 
   menuBtn.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('nav-open');
+    if (!isOpen) {
+      navMenu.querySelectorAll('li.dropdown').forEach((d) => d.classList.remove('open'));
+    }
     menuBtn.setAttribute('aria-expanded', String(isOpen));
     menuBtn.innerHTML = isOpen ? '&times;' : '&#9776;';
     document.body.style.overflow = isOpen && window.innerWidth <= 1024 ? 'hidden' : '';
@@ -35,6 +38,12 @@ function setupMobileMenu() {
 
   navMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        const li = link.closest('li.dropdown');
+        if (li && link === li.querySelector(':scope > a')) {
+          return;
+        }
+      }
       nav.classList.remove('nav-open');
       menuBtn.setAttribute('aria-expanded', 'false');
       menuBtn.innerHTML = '&#9776;';
@@ -46,14 +55,18 @@ function setupMobileMenu() {
     trigger.addEventListener('click', (event) => {
       if (window.innerWidth > 1024) return;
       event.preventDefault();
+      event.stopPropagation();
       const dropdown = trigger.parentElement;
-      dropdown.classList.toggle('open');
+      const wasOpen = dropdown.classList.contains('open');
+      navMenu.querySelectorAll('li.dropdown').forEach((d) => d.classList.remove('open'));
+      if (!wasOpen) dropdown.classList.add('open');
     });
   });
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1024) {
       nav.classList.remove('nav-open');
+      navMenu.querySelectorAll('li.dropdown').forEach((d) => d.classList.remove('open'));
       menuBtn.setAttribute('aria-expanded', 'false');
       menuBtn.innerHTML = '&#9776;';
       document.body.style.overflow = '';
