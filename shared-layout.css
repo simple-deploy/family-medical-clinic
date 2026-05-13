@@ -769,7 +769,7 @@ footer {
   }
 
   .chat-pnl.open {
-    height: min(70vh, 520px);
+    height: min(80vh, 520px);
   }
 
   .call-box {
