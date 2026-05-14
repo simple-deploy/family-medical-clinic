@@ -853,6 +853,167 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2.8rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Additional responsive for practice information page */
+    @media (max-width: 425px) {
+      .page-header {
+        padding: 80px 3% !important;
+      }
+
+      .page-header h1 {
+        font-size: 2rem !important;
+      }
+
+      .page-header p {
+        font-size: 1rem !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: 2fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+
+      div[style*="grid-template-columns: 280px 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+
+      div[style*="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+
+      div[style*="padding: 50px"] {
+        padding: 30px !important;
+      }
+
+      div[style*="padding: 40px"] {
+        padding: 20px !important;
+      }
+
+      div[style*="padding: 30px"] {
+        padding: 20px !important;
+      }
+
+      h2 {
+        font-size: 1.8rem !important;
+      }
+
+      h3 {
+        font-size: 1.2rem !important;
+      }
+
+      p {
+        font-size: 0.9rem !important;
+      }
+
+      .serv-list button {
+        padding: 14px 16px !important;
+        font-size: 0.9rem !important;
+      }
+
+      .dr-card {
+        border-radius: 16px !important;
+      }
+
+      .dr-img {
+        height: 300px !important;
+      }
+
+      .dr-info {
+        padding: 20px !important;
+      }
+
+      .dr-info h3 {
+        font-size: 1.2rem !important;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .page-header {
+        padding: 60px 2% !important;
+      }
+
+      .page-header h1 {
+        font-size: 2.5rem !important;
+      }
+
+      .page-header p {
+        font-size: 0.95rem !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: 2fr 1fr"] {
+        gap: 30px !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+        gap: 20px !important;
+      }
+
+      div[style*="grid-template-columns: 280px 1fr"] {
+        gap: 20px !important;
+      }
+
+      div[style*="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))"] {
+        gap: 20px !important;
+      }
+
+      div[style*="padding: 50px"] {
+        padding: 20px !important;
+      }
+
+      div[style*="padding: 40px"] {
+        padding: 15px !important;
+      }
+
+      div[style*="padding: 30px"] {
+        padding: 15px !important;
+      }
+
+      h2 {
+        font-size: 1.6rem !important;
+      }
+
+      h3 {
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        font-size: 0.85rem !important;
+      }
+
+      .serv-list button {
+        padding: 12px 14px !important;
+        font-size: 0.85rem !important;
+      }
+
+      .dr-img {
+        height: 280px !important;
+      }
+
+      .dr-info {
+        padding: 15px !important;
+      }
+
+      .dr-info h3 {
+        font-size: 1.1rem !important;
+      }
+    }
+
     /* Dropdown CSS */
   </style>
   <link rel="stylesheet" href="shared-layout.css">

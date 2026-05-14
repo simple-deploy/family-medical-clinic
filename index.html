@@ -1137,6 +1137,272 @@
       }
     }
 
+    /* Additional responsive for 425px and 320px */
+    @media (max-width: 425px) {
+      .hero {
+        padding: 0 3%;
+      }
+
+      .hero-content {
+        padding: 40px;
+        border-radius: 20px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.4rem, 3.5vw, 3.5rem);
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .trust-sec {
+        padding: 80px 3%;
+      }
+
+      .t-grid {
+        gap: 50px;
+      }
+
+      .t-img img {
+        height: 450px;
+      }
+
+      .t-content h2 {
+        font-size: 2.3rem;
+      }
+
+      .qs {
+        padding: 50px 3%;
+      }
+
+      .q-num {
+        font-size: 3rem;
+      }
+
+      .page-header {
+        padding: 80px 3%;
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+      }
+
+      .serv-container {
+        padding: 60px 3%;
+        gap: 50px;
+      }
+
+      .serv-nav {
+        padding: 20px !important;
+      }
+
+      .serv-list button {
+        font-size: 0.9rem !important;
+        padding: 12px 14px !important;
+      }
+
+      .serv-view {
+        padding: 40px;
+      }
+
+      .serv-view h2 {
+        font-size: 2rem;
+      }
+
+      .treat-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+      }
+
+      .treat-card {
+        padding: 15px !important;
+      }
+
+      .serv-img {
+        height: 300px !important;
+      }
+
+      .team-wrap {
+        padding: 60px 3%;
+      }
+
+      .team-grid {
+        gap: 30px;
+      }
+
+      .dr-card {
+        border-radius: 16px;
+      }
+
+      .dr-img {
+        height: 320px;
+      }
+
+      .dr-info {
+        padding: 24px;
+      }
+
+      .dr-info h3 {
+        font-size: 1.3rem;
+      }
+
+      .bpage {
+        padding: 80px 3%;
+      }
+
+      .b-form-wrap {
+        padding: 40px;
+        max-width: 100%;
+      }
+
+      .b-form-wrap h2 {
+        font-size: 2rem;
+      }
+
+      .frm-row {
+        gap: 20px;
+      }
+
+      .call-box {
+        padding: 30px;
+      }
+
+      .call-box h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .hero {
+        padding: 0 2%;
+      }
+
+      .hero-content {
+        padding: 30px;
+        border-radius: 16px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2rem, 3vw, 3rem);
+      }
+
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+
+      .trust-sec {
+        padding: 60px 2%;
+      }
+
+      .t-grid {
+        gap: 40px;
+      }
+
+      .t-img img {
+        height: 400px;
+      }
+
+      .t-content h2 {
+        font-size: 2rem;
+      }
+
+      .qs {
+        padding: 40px 2%;
+      }
+
+      .q-num {
+        font-size: 2.5rem;
+      }
+
+      .page-header {
+        padding: 60px 2%;
+      }
+
+      .page-header h1 {
+        font-size: 2.5rem;
+      }
+
+      .serv-container {
+        padding: 50px 2%;
+        gap: 40px;
+      }
+
+      .serv-nav {
+        padding: 15px !important;
+      }
+
+      .serv-list button {
+        font-size: 0.85rem !important;
+        padding: 10px 12px !important;
+      }
+
+      .serv-view {
+        padding: 30px;
+      }
+
+      .serv-view h2 {
+        font-size: 1.8rem;
+      }
+
+      .treat-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      .treat-card {
+        padding: 12px !important;
+      }
+
+      .serv-img {
+        height: 250px !important;
+      }
+
+      .team-wrap {
+        padding: 50px 2%;
+      }
+
+      .team-grid {
+        gap: 25px;
+      }
+
+      .dr-img {
+        height: 300px;
+      }
+
+      .dr-info {
+        padding: 20px;
+      }
+
+      .dr-info h3 {
+        font-size: 1.2rem;
+      }
+
+      .bpage {
+        padding: 60px 2%;
+      }
+
+      .b-form-wrap {
+        padding: 30px;
+      }
+
+      .b-form-wrap h2 {
+        font-size: 1.8rem;
+      }
+
+      .frm-row {
+        gap: 16px;
+      }
+
+      .call-box {
+        padding: 24px;
+      }
+
+      .call-box h3 {
+        font-size: 1.3rem;
+      }
+    }
+
     /* Dropdown CSS */
   </style>
   <link rel="stylesheet" href="shared-layout.css">
@@ -1610,7 +1876,7 @@
   <div id="services" class="page">
     <div class="page-header"
       style="background: linear-gradient(rgba(2,44,34,0.9), rgba(2,44,34,0.9)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2600&auto=format&fit=crop') center/cover; padding: 140px 5% 100px;">
-      <h1 style="font-size: 4rem; color: var(--sage-l);">Healthcare Capabilities</h1>
+      <h1 style="font-size: 3rem; color: var(--sage-l);">Healthcare Capabilities</h1>
       <p style="color: var(--sage-m); max-width: 700px; margin: 0 auto; font-size: 1.25rem;">Comprehensive, specialized
         medical services tailored to address the diverse needs of every life stage, utilizing the latest in modern
         medical science.</p>

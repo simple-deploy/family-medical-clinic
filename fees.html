@@ -853,6 +853,106 @@
       }
     }
 
+    /* Additional responsive for fees page */
+    @media (max-width: 425px) {
+      section[style*="padding: 80px 5%"] {
+        padding: 60px 3% !important;
+      }
+
+      div[style*="display: flex; gap: 40px"] {
+        flex-direction: column !important;
+        gap: 30px !important;
+      }
+
+      div[style*="flex: 1; min-width: 300px"] {
+        min-width: unset !important;
+      }
+
+      div[style*="background: #fff; padding: 50px"] {
+        padding: 30px !important;
+      }
+
+      div[style*="background: var(--slate); padding: 30px"] {
+        padding: 20px !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+
+      div[style*="background: #fff; padding: 40px"] {
+        padding: 20px !important;
+      }
+
+      img[style*="max-width: 250px"] {
+        max-width: 200px !important;
+      }
+
+      h3 {
+        font-size: 1.2rem !important;
+      }
+
+      p, ul li {
+        font-size: 0.9rem !important;
+      }
+
+      ul {
+        padding-left: 15px !important;
+      }
+    }
+
+    @media (max-width: 320px) {
+      section[style*="padding: 80px 5%"] {
+        padding: 50px 2% !important;
+      }
+
+      div[style*="display: flex; gap: 40px"] {
+        gap: 20px !important;
+      }
+
+      div[style*="background: #fff; padding: 50px"] {
+        padding: 20px !important;
+      }
+
+      div[style*="background: var(--slate); padding: 30px"] {
+        padding: 15px !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+        gap: 15px !important;
+      }
+
+      div[style*="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))"] {
+        gap: 20px !important;
+      }
+
+      div[style*="background: #fff; padding: 40px"] {
+        padding: 15px !important;
+      }
+
+      img[style*="max-width: 250px"] {
+        max-width: 150px !important;
+      }
+
+      h3 {
+        font-size: 1.1rem !important;
+      }
+
+      p, ul li {
+        font-size: 0.85rem !important;
+      }
+
+      ul {
+        padding-left: 10px !important;
+      }
+    }
+
     /* Dropdown CSS */
   </style>
   <link rel="stylesheet" href="shared-layout.css">

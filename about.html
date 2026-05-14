@@ -853,6 +853,180 @@
       }
     }
 
+    /* Mobile Responsive Styles (Small: <640px) */
+    @media (max-width: 639px) {
+      .page-header {
+        padding: 60px 5% 50px !important;
+      }
+
+      .page-header h1 {
+        font-size: 2rem !important;
+        margin-bottom: 12px !important;
+      }
+
+      .page-header p {
+        font-size: 0.95rem !important;
+      }
+
+      /* Hero heading styles */
+      [style*="font-size: 3.5rem"] {
+        font-size: 1.8rem !important;
+      }
+
+      [style*="padding: 50px 40px"] {
+        padding: 30px 20px !important;
+      }
+
+      [style*="display: grid; grid-template-columns: 2.5fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+
+      [style*="border-radius: 30px"] {
+        border-radius: 20px !important;
+      }
+
+      section {
+        padding: 40px 5% !important;
+      }
+
+      [style*="font-size: 2.2rem"] {
+        font-size: 1.5rem !important;
+      }
+
+      [style*="font-size: 1.05rem"] {
+        font-size: 0.95rem !important;
+      }
+
+      [style*="max-width: 250px"] {
+        max-width: 80% !important;
+      }
+
+      button.btn-gold {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+      }
+
+      button.btn-forest {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+      }
+
+      [style*="display: flex; gap: 20px"] {
+        flex-wrap: wrap;
+        gap: 12px !important;
+      }
+    }
+
+    /* Tablet Responsive Styles (Medium: 640px - 1023px) */
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .page-header {
+        padding: 80px 5% 70px !important;
+      }
+
+      .page-header h1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 14px !important;
+      }
+
+      .page-header p {
+        font-size: 1rem !important;
+      }
+
+      [style*="padding: 50px 40px"] {
+        padding: 40px 30px !important;
+      }
+
+      [style*="display: grid; grid-template-columns: 2.5fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 50px !important;
+      }
+
+      section {
+        padding: 60px 5% !important;
+      }
+
+      [style*="font-size: 2.2rem"] {
+        font-size: 1.8rem !important;
+      }
+
+      [style*="font-size: 1.05rem"] {
+        font-size: 1rem !important;
+      }
+
+      button.btn-gold {
+        padding: 11px 24px !important;
+        font-size: 0.88rem !important;
+      }
+
+      button.btn-forest {
+        padding: 11px 24px !important;
+        font-size: 0.88rem !important;
+      }
+
+      [style*="display: flex; gap: 20px"] {
+        gap: 16px !important;
+      }
+    }
+
+    /* Desktop Responsive Styles (Large: 1024px+) */
+    @media (min-width: 1024px) {
+      .page-header {
+        padding: 120px 5% 100px !important;
+      }
+
+      .page-header h1 {
+        font-size: 3.5rem !important;
+        margin-bottom: 16px !important;
+      }
+
+      .page-header p {
+        font-size: 1.1rem !important;
+      }
+
+      [style*="padding: 50px 40px"] {
+        padding: 50px 40px !important;
+      }
+
+      [style*="display: grid; grid-template-columns: 2.5fr 1fr"] {
+        grid-template-columns: 2.5fr 1fr !important;
+        gap: 80px !important;
+      }
+
+      section {
+        padding: 80px 5% !important;
+      }
+
+      [style*="font-size: 2.2rem"] {
+        font-size: 2.2rem !important;
+      }
+
+      [style*="font-size: 1.05rem"] {
+        font-size: 1.05rem !important;
+      }
+
+      button.btn-gold {
+        padding: 14px 40px !important;
+        font-size: 1.05rem !important;
+      }
+
+      button.btn-forest {
+        padding: 14px 30px !important;
+        font-size: 1rem !important;
+      }
+
+      [style*="display: flex; gap: 20px"] {
+        gap: 20px !important;
+      }
+    }
+
+    /* Extra Large Screen (1280px+) */
+    @media (min-width: 1280px) {
+      section {
+        padding: 100px 5% !important;
+      }
+    }
+
     /* Dropdown CSS */
   </style>
   <link rel="stylesheet" href="shared-layout.css">
@@ -940,7 +1114,7 @@
       </div>
     </div>
 
-    <section style="padding: 80px 5%; background: #fff;">
+    <section style="padding: clamp(40px, 8vw, 80px) 5%; background: #fff;">
       <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.5fr 1fr; gap: 80px;">
 
         <!-- Left Column Content -->
